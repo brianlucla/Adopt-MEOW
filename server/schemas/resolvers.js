@@ -33,11 +33,11 @@ const resolvers = {
 
     },
 
-    removeFavorite: async (parent, { animalId }, context) => {
+    removeFavorite: async (parent, { animalID }, context) => {
 
     },
 
-    removeAdopted: async (parent, { animalId }, context) => {
+    removeAdopted: async (parent, { animalID }, context) => {
 
     }
   },

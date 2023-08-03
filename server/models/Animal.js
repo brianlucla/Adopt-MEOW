@@ -1,6 +1,11 @@
 const { Schema } = require('mongoose');
 
 const animalSchema = new Schema({
+
+  animalID: {
+    type: String,
+    required: true
+  },
   type: {
     type: String,
     required: true
