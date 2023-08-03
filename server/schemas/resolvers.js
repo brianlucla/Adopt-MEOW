@@ -25,7 +25,7 @@ const resolvers = {
 
     },
 
-    addFavorite: async (parent, {animalData}, context) => {
+    addFavorite: async (parent, { animalData }, context) => {
 
     },
 
