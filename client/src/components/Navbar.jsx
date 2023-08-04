@@ -19,30 +19,28 @@ const Navbar = () => {
   return (
     <nav className="bg-black p-5 flex items-center justify-between">
       <div className="flex items-center">
-        <img src={logo} alt="Logo" className="max-h-2 min-w-min" />
-        <div className="flex items-center space-x-4">
-          <Link to="/" className="text-white font-bold text-xl">
-            Your Logo
-          </Link>
-          <ul className="flex space-x-4">
-            {menuOptions.map((option, index) => (
-              <li key={index}>
-                {option.children ? (
-                  <HoverableMenuOption
-                    label={option.label}
-                    children={option.children}
-                  />
-                ) : (
-                  <Link to={option.path} className="text-white">
-                    {option.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <img src={logo} alt="Logo" className="h-4 w-auto mr-4" />
+        <Link to="/" className="text-white font-bold text-5xl">
+          AdoptMeow
+        </Link>
       </div>
-      <div>
+      <div className="flex items-center space-x-4">
+        <ul className="flex space-x-4">
+          {menuOptions.map((option, index) => (
+            <li key={index}>
+              {option.children ? (
+                <HoverableMenuOption
+                  label={option.label}
+                  children={option.children}
+                />
+              ) : (
+                <Link to={option.path} className="text-white">
+                  {option.label}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
         <Link to="/login" className="text-white font-bold">
           Login/Signup
         </Link>

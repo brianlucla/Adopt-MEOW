@@ -21,6 +21,12 @@ body,
   @apply text-white;
 }
 
+.navbar img { 
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
  html {
   line-height: 1.15;
   /* 1 */
