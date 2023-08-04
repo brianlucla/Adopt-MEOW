@@ -1,44 +1,108 @@
 const { Tech, Matchup } = require('../models');
+const Profile = require('../models/Profile');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     
     me: async (parent, args, context) => {
-
+      if(context.profile) {
+        const profileData = await Profile.findOne({_id: context.user._id}).select('-__v -password');
+      }
     },
 
     favorites: async (parent, args, context) => {
+      if (context.profile) {
+        const favoritesData = Profile.findById({_id: context.user._id}).select(favorites);
 
+        return favoritesData;
+      }
+
+      throw AuthenticationError;
     },
 
     adopted: async (parent, args, context) => {
-      
+      if(context.profile) {
+        const adoptedData = Profile.findById({_id: context.user._id}).select(adopted);
+
+        return adoptedData;
+      }
+      throw AuthenticationError;
     }
 
   },
   Mutation: {
     addProfile: async(parent, args) => {
+      const profile = await Profile.create(args);
+      const token = signToken(profile);
 
+      return { token, profile };
     },
 
     login: async (parent, { email, password }) => {
+      const profile = await Profile.findOne({email});
 
+      if (!profile) {
+        throw AuthenticationError;
+      }
     },
 
     addFavorite: async (parent, { animalData }, context) => {
 
+      if (context.profile) {
+        const favoriteData = await Profile.findByIdAndUpdate(
+          {_id: context.user._id},
+          {$push: {favorites: animalData}},
+          {new: true},
+        );
+        
+        return favoriteData;
+      }
+      throw AuthenticationError;
+
     },
 
     addAdopted: async (parent, { animalData }, context) => {
+      if (context.profile) {
+        const adoptedData = await Profile.findByIdAndUpdate(
+          {_id: context.user._id},
+          {$push: {adopted: animalData}},
+          {new: true},
+        );
 
+        return adoptedData;
+      }
+
+      throw AuthenticationError;
     },
 
     removeFavorite: async (parent, { animalID }, context) => {
+      if (context.profile) {
+        const favoriteData = await Profile.findByIdAndUpdate(
+          {_id: context.user._id},
+          {$pull: {favorites: {animalID}}},
+          {new:true},
+        );
 
+        return favoriteData;
+
+      }
+
+      throw AuthenticationError;
     },
 
     removeAdopted: async (parent, { animalID }, context) => {
+      if (context.profile) {
+        const adoptedData = await Profile.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { adopted: { animalID } } },
+          { new: true }
+        );
 
+        return adoptedData;
+      }
+
+      throw AuthenticationError;
     }
   },
 };
