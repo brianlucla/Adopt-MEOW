@@ -35,6 +35,8 @@ const typeDefs = `
 
   type Query {
     me: Profile
+    favorites: Profile
+    adopted: Profile
   }
 
   type Mutation {
