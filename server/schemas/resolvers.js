@@ -48,6 +48,7 @@ const resolvers = {
     },
 
     addFavorite: async (parent, { animalData }, context) => {
+
       if (context.profile) {
         const favoriteData = await Profile.findByIdAndUpdate(
           {_id: context.user._id},
@@ -58,6 +59,7 @@ const resolvers = {
         return favoriteData;
       }
       throw AuthenticationError;
+
     },
 
     addAdopted: async (parent, { animalData }, context) => {
