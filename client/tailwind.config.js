@@ -26,7 +26,7 @@ export default {
         opensans: ["Open Sans", "sans-serif"],
       },
       content: {
-        // brush: "url('./assets/brush.png')",
+        logo: "url('./assets/logo-no-background.png')",
         beef: "url('./assets/images/BEEF.jpg')",
         winnie: "url('./BBYJEFF.jpg')",
         luna: "url('./assets/LUNA.png')",
