@@ -14,6 +14,8 @@ import RabbitsPage from './components/RabbitsPage';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 
+import AboutUs from './components/AboutUs';
+
 
 const client = new ApolloClient({
   uri: '/graphql',
