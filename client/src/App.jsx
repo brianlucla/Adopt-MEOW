@@ -12,6 +12,7 @@ import CatsPage from './components/CatsPage';
 import DogsPage from './components/DogsPage';
 import RabbitsPage from './components/RabbitsPage';
 import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 
 
 const client = new ApolloClient({
@@ -32,6 +33,7 @@ function App() {
         <RabbitsPage />
         <Outlet />
         <AboutUs />
+        <ContactUs />
       </div>
     </ApolloProvider>
   );
