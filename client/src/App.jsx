@@ -15,6 +15,7 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 
 import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 
 
 const client = new ApolloClient({
