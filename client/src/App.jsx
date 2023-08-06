@@ -6,6 +6,7 @@ import Carousel from './components/Carousel';
 import 'tailwindcss/tailwind.css';
 import IncrementalImages from './components/IncrementalImages';
 import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 
 
 const client = new ApolloClient({
@@ -22,6 +23,7 @@ function App() {
         <IncrementalImages />
         <Outlet />
         <AboutUs />
+        <ContactUs />
       </div>
     </ApolloProvider>
   );

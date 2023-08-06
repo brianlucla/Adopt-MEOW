@@ -1953,3 +1953,163 @@ label form [type='radio'] {
 .about-us__icon:hover {
   transform: scale(1.5)
 }
+
+
+
+/* style for contact us */
+
+.contact-us {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group label {
+  flex: 1;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+
+input[type='text'],
+input[type='email'],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+textarea {
+  height: 150px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50; /* Green color for the submit button, you can change it to your preference */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style the checkboxes */
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* Hide the default checkbox appearance */
+input[type='checkbox']::-ms-check,
+input[type='checkbox']::-ms-check,
+input[type='checkbox']::-webkit-check,
+input[type='checkbox']::-moz-check,
+input[type='checkbox']::-webkit-check,
+input[type='checkbox']::-webkit-check,
+input[type='checkbox']::-moz-check,
+input[type='checkbox']::-moz-check {
+  border: none;
+  background: transparent;
+  display: none;
+}
+
+/* Custom checkbox appearance when checked */
+input[type='checkbox']:checked::before {
+  content: '\2714';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  font-size: 16px;
+  color: #4caf50; /* Green color for the checkmark, you can change it to your preference */
+}
+
+/* Style the file upload input */
+input[type='file'] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+/* Optional: Add a label style for the file input */
+label[for='file'] {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* grid header style for join our journey */
+/* CSS for the grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color:;
+  padding: 20px;
+  border-radius: 8px;
+  
+}
+
+.journey {
+  display: flex;
+  justify-content:flex-end; /* Align to the left side */
+  align-items: center; /* Center the content vertically */
+}
+
+/* Add responsive styles for the two-column grid on small screens */
+@media (min-width: 640px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+  }
+}
