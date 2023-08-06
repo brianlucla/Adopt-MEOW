@@ -37,6 +37,7 @@ function App() {
         <AboutUs />
         <ContactUs />
         <AboutUs />
+        <ContactUs />
       </div>
     </ApolloProvider>
   );
