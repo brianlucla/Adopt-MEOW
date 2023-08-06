@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import 'tailwindcss/tailwind.css';
 import IncrementalImages from './components/IncrementalImages';
+import AboutUs from './components/AboutUs';
+
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -19,6 +21,7 @@ function App() {
         <Carousel />
         <IncrementalImages />
         <Outlet />
+        <AboutUs />
       </div>
     </ApolloProvider>
   );
