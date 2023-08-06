@@ -36,8 +36,7 @@ function App() {
         <Favorites />
         <AboutUs />
         <ContactUs />
-        <AboutUs />
-        <ContactUs />
+        
       </div>
     </ApolloProvider>
   );
