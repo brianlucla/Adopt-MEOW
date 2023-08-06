@@ -86,10 +86,12 @@ const IncrementalImages = () => {
       {/* Render your text on the left side */}
       <div className="flex-1 flex items-center justify-center">
         <h1 className="text-4xl font-bold text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas,
-          dignissimos. Vitae accusamus sint iusto quas tempora praesentium autem
-          id facilis. Voluptates, quos iusto optio a soluta cumque molestias
-          fugiat atque.
+          Welcome to AdoptMeow! We are dedicated to rescuing and adopting over a
+          thousand companion animals annually. Our focus is on strengthening the
+          human-animal bond through education programs and emergency assistance
+          for pet parents. With the support of donors and volunteers, we thrive,
+          ensuring a loving home for pets in need. Find your perfect match at
+          AdoptMeow and make a difference in an animal's life today!
         </h1>
       </div>
     </div>
