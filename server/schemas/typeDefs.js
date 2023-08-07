@@ -12,7 +12,7 @@ const typeDefs = `
     breed: String!
     name: String!
     colors: String
-    age: Number
+    age: String
     size: String
     photoURL: String
   }
@@ -23,7 +23,7 @@ const typeDefs = `
     breed: String!
     name: String!
     colors: String
-    age: Number
+    age: String
     size: String
     photoURL: String
   }

@@ -26,8 +26,8 @@ const animalSchema = new Schema({
   },
 
   age: {
-    type: Number,
-  }
+    type: String,
+  },
 
   size: {
     type: String,
