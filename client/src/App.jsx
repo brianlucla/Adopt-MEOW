@@ -7,6 +7,9 @@ import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import 'tailwindcss/tailwind.css';
 import IncrementalImages from './components/IncrementalImages';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
+
 import Footer from './components/Footer';
 import CatsPage from './components/CatsPage';
 import DogsPage from './components/DogsPage';
@@ -29,6 +32,8 @@ function App() {
         <DogsPage />
         <RabbitsPage />
         <Outlet />
+        <AboutUs />
+        <ContactUs />
       </div>
     </ApolloProvider>
   );
