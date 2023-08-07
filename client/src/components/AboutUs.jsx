@@ -26,7 +26,7 @@ const AboutUs = () => {
     breed: "Labrador Retriever",
     age: 3,
     description: "Bella is a sweet and energetic Labrador who loves to play fetch and go for long walks.",
-    owner: "Philipp Cotter",
+    owner: "Philip Cotter",
     testimonial: "We are so grateful to Adopt-Meow for bringing Bella into our lives. She has become an inseparable part of our family!",
     image: bellaImage,
   },
