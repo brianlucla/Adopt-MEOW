@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import pawPrint from "../assets/images/testimonials/paw.png";
+import animalBackground from "../assets/images/testimonials/animals.png";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +12,17 @@ const ContactUs = () => {
     general: false,
     file: null,
   });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  /* hook ueEffect for alert */
+   useEffect(() => {
+     if (isSubmitted) {
+       setTimeout(() => {
+         setIsSubmitted(false);
+       }, 3000); // remove the success message after 5 seconds
+     }
+   }, [isSubmitted]);
 
   const handleChange = (e) => {
     const { name, checked, type } = e.target;
@@ -41,31 +54,39 @@ const ContactUs = () => {
       method: "POST",
       body: formDataToSend,
     })
-      .then((response) => response.json())
+      .then((response) => {
+        // Test to ensure the submission was successful
+        if (response.ok) {
+          // Display a success alert message
+          setIsSubmitted(true);
+          // Clear the form after submission
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+            volunteer: false,
+            adopt: false,
+            inquiry: false,
+            file: null,
+          });
+        } else {
+          throw new Error("Server response was not ok.");
+        }
+        return response.json();
+      })
       .then((data) => {
-        // You can handle the response data here (e.g., display a success message)
+        // You can handle the response data here (e.g., further process it if needed)
         console.log("Form submitted successfully:", data);
       })
       .catch((error) => {
         // Handle any errors that occur during the submission
         console.error("Error submitting form:", error);
       });
-
-    // Clear the form after submission
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-      volunteer: false,
-      adopt: false,
-      inquiry: false,
-      file: null,
-    });
   };
 
   return (
-<div>
-     <div class="grid-container">
+    <div>
+      <div class="grid-container">
         <div class="grid-item journey">
           <h2 className="text-white">Join Our Journey</h2>
         </div>
@@ -78,11 +99,21 @@ const ContactUs = () => {
           </p>
         </div>
       </div>
-      
-
 
       <div className="contact-us">
-        <h2>Contact Us</h2>
+        <h2>
+          <img
+            src={pawPrint}
+            alt="Paw print"
+            style={{ marginRight: "10px", height: "30px", width: "30px" }}
+          />
+          Contact Us
+        </h2>
+        {isSubmitted && (
+          <div className="success-message">
+            Your form has been submitted successfully!
+          </div>
+        )}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
@@ -93,6 +124,11 @@ const ContactUs = () => {
               value={formData.name}
               onChange={handleChange}
               required
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
             />
           </div>
           <div className="form-group">
@@ -104,6 +140,11 @@ const ContactUs = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
             />
           </div>
           <div className="form-group">
@@ -114,6 +155,12 @@ const ContactUs = () => {
               value={formData.message}
               onChange={handleChange}
               required
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                height: "250px",
+              }}
             ></textarea>
           </div>
 
