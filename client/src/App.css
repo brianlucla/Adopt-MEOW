@@ -2123,3 +2123,99 @@ label[for='file'] {
   margin: 20px 0;
   border-radius: 5px;
 }
+
+/**********************************************************************************************//**********************************************************************************************/
+
+.favorites-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.favorites-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+   color: hsl(0, 9%, 98%);
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  justify-items: center; /* Center items horizontally within the grid */
+}
+
+.pet-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Center text content within the card */
+}
+
+.pet-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.pet-name {
+  font-weight: bold;
+  color: hsl(0, 9%, 98%);
+}
+
+.pet-breed {
+  color: hsl(0, 9%, 98%);
+}
+
+.pet-age,
+.pet-weight {
+  margin-top: 0.5rem;
+  color: hsl(0, 9%, 98%);
+}
+
+.pet-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.adopt-button,
+.remove-button {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.adopt-button {
+  background-color: teal;
+  color: white;
+}
+
+.adopt-button:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.remove-button {
+  background-color: #800303;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #d60000;
+}
+
+
+/* Mobile view styles */
+@media screen and (max-width: 640px) {
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+}
