@@ -26,9 +26,9 @@ export default {
         opensans: ["Open Sans", "sans-serif"],
       },
       content: {
-        logo: "url('./assets/logo-no-background.png')",
+        LOGO: "url('./assets/images/LOGO.png')",
         beef: "url('./assets/images/BEEF.jpg')",
-        winnie: "url('./BBYJEFF.jpg')",
+        winnie: "url('./assets/images/winnie.png')",
         luna: "url('./assets/LUNA.png')",
       },
     },
