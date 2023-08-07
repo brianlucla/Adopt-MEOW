@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/LOGO.png";
+import "../index.css";
 
 const Navbar = () => {
   const menuOptions = [
@@ -17,14 +18,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-black p-5 flex items-center justify-between">
+    <nav className="bg-black p-5 flex space-x-4 items-center justify-between">
       <div className="flex items-center">
         <img src={logo} alt="Logo" className="h-4 w-auto mr-4" />
         <Link to="/" className="text-white font-bold text-5xl">
           AdoptMeow
         </Link>
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="hidden md:flex items-center space-x-4">
         <ul className="flex space-x-4">
           {menuOptions.map((option, index) => (
             <li key={index}>

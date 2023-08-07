@@ -1,6 +1,8 @@
 import './App.css';
+import './index.css';
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
 import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import 'tailwindcss/tailwind.css';
@@ -8,6 +10,10 @@ import IncrementalImages from './components/IncrementalImages';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 
+import Footer from './components/Footer';
+import CatsPage from './components/CatsPage';
+import DogsPage from './components/DogsPage';
+import RabbitsPage from './components/RabbitsPage';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -21,6 +27,10 @@ function App() {
         <Navbar />
         <Carousel />
         <IncrementalImages />
+        <Footer />
+        <CatsPage />
+        <DogsPage />
+        <RabbitsPage />
         <Outlet />
         <AboutUs />
         <ContactUs />

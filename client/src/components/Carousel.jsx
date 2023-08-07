@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import matthew from "../assets/images/matthew.png";
-import LUNA from "../assets/images/LUNA.png";
+import LUNA from "../assets/images/sofia(1).png";
 import quinton from "../assets/images/quinton.png";
 import jeff from "../assets/images/jeff.png";
 

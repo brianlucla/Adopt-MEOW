@@ -8,10 +8,105 @@
 
 html,
 body,
-#root,
+#root{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 .app {
   height: 100%;
   background-color: #010026;
-  @apply text-white;
+  color: white;
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar styling */
+.navbar { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display:flex;
+  align-items: center;
+}
+
+.navbar-menu {
+  display:flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-login {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar-menu a:hover,
+.navbar-login a:hover {
+  color: red;
+}
+
+
+/* card styling */
+.card {
+  color: white;
+  margin-bottom: 1rem;
+  padding: 20px;
+  width:100%;
+  background-color: rainbow;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: solid white;
+}
+
+.card img{
+  width:300px;
+  height:auto;
+  display: flex;
+  align-items: center;
+}
+
+.card a{ 
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: teal;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.card a:hover{
+  background-color: yellow;
+  color: black;
+}
+
+
+@media (min-width: 768px) {
+  .card {
+    width: calc(50% - 1rem); /* Two cards per row on medium screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: calc(33.33% - 1rem); /* Three cards per row on large screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: calc(25% - 1rem); /* Four cards per row on extra-large screens */
+  }
 }
 
