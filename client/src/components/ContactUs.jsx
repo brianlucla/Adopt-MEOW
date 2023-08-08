@@ -16,13 +16,13 @@ const ContactUs = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   /* hook ueEffect for alert */
-  useEffect(() => {
-    if (isSubmitted) {
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000); // remove the success message after 5 seconds
-    }
-  }, [isSubmitted]);
+   useEffect(() => {
+     if (isSubmitted) {
+       setTimeout(() => {
+         setIsSubmitted(false);
+       }, 3000); // remove the success message after 5 seconds
+     }
+   }, [isSubmitted]);
 
   const handleChange = (e) => {
     const { name, checked, type } = e.target;
@@ -215,4 +215,6 @@ const ContactUs = () => {
   );
 };
 
+
 export default ContactUs;
+

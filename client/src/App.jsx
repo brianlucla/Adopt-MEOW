@@ -7,14 +7,20 @@ import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import 'tailwindcss/tailwind.css';
 import IncrementalImages from './components/IncrementalImages';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
+
 import Footer from './components/Footer';
 import CatsPage from './components/CatsPage';
 import DogsPage from './components/DogsPage';
 import RabbitsPage from './components/RabbitsPage';
+
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 
 import Favorites from "./components/Favorites";
+
+
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -36,7 +42,7 @@ function App() {
         <Favorites />
         <AboutUs />
         <ContactUs />
-        
+
       </div>
     </ApolloProvider>
   );
