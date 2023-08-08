@@ -14,7 +14,13 @@ import Footer from './components/Footer';
 import CatsPage from './components/CatsPage';
 import DogsPage from './components/DogsPage';
 import RabbitsPage from './components/RabbitsPage';
-import Favorites from './components/Favorites';
+
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
+
+import Favorites from "./components/Favorites";
+
+
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -36,6 +42,7 @@ function App() {
         <Favorites />
         <AboutUs />
         <ContactUs />
+
       </div>
     </ApolloProvider>
   );

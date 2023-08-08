@@ -15,35 +15,36 @@ const Navbar = () => {
         { label: "Rabbits", path: "/rabbits" },
       ],
     },
-    { label: "Favorites", path: "/favorites" },
+    { label: "Contact Us", path: "/contact"},
+    { label: "Favorites", path: "/favorites"},
   ];
 
   return (
-    <nav className="bg-black p-5 flex space-x-4 items-center justify-between">
-      <div className="flex items-center">
+    <nav className="navbar p-5 flex space-x-4 items-center justify-between">
+      <div className="navbar-logo">
         <img src={logo} alt="Logo" className="h-4 w-auto mr-4" />
-        <Link to="/" className="text-white font-bold text-5xl">
+        <Link to="/" className="navbar-title">
           AdoptMeow
         </Link>
       </div>
-      <div className="hidden md:flex items-center space-x-4">
+      <div className="navbar-menu hidden md:flex items-center space-x-4">
         <ul className="flex space-x-4">
           {menuOptions.map((option, index) => (
-            <li key={index}>
+            <li key={index} className="navbar-menu-item">
               {option.children ? (
                 <HoverableMenuOption
                   label={option.label}
                   children={option.children}
                 />
               ) : (
-                <Link to={option.path} className="text-white">
+                <Link to={option.path} className="navbar-menu-link text-white">
                   {option.label}
                 </Link>
               )}
             </li>
           ))}
         </ul>
-        <Link to="/login" className="text-white font-bold">
+        <Link to="/login" className="navbar-login text-white font-bold">
           Login/Signup
         </Link>
       </div>
@@ -63,14 +64,14 @@ const HoverableMenuOption = ({ label, children }) => {
   };
 
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="hoverable-menu-option" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link to="#" className="text-white">
         {label}
       </Link>
       {isHovering && (
-        <div className="absolute z-10 bg-blue-800 mt-2 p-2 space-y-2">
+        <div className="hoverable-menu-content absolute z-10 bg-blue-800 mt-2 p-2 space-y-2">
           {children.map((child, index) => (
-            <Link key={index} to={child.path} className="text-white">
+            <Link key={index} to={child.path} className="label text-white">
               {child.label}
             </Link>
           ))}
