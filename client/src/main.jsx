@@ -24,4 +24,3 @@ const router = (
     </Routes>
   </Router>
 );
-createRoot(document.getElementById("root")).render(router);

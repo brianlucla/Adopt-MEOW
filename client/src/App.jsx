@@ -11,14 +11,8 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 
 import Footer from './components/Footer';
-import CatsPage from './components/CatsPage';
-import DogsPage from './components/DogsPage';
-import RabbitsPage from './components/RabbitsPage';
-
-import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
-
 import Favorites from "./components/Favorites";
+
 
 
 

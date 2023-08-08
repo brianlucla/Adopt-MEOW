@@ -17,6 +17,7 @@ import fluffyImage from "../assets/images/testimonials/fluffyImage.png";
 import frodoImage from "../assets/images/testimonials/frodoImage.png";
 import bunjaminImage from "../assets/images/testimonials/bunjaminImage.png";
 import catrickImage from "../assets/images/testimonials/catrickImage.png";
+import Navbar from './Navbar';
 
 const AboutUs = () => {
   // Sample data for flip cards of 8 animals
@@ -147,66 +148,69 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="about-us">
-      <h2 className="about-us__heading">Our Mission, Vision, and Passion</h2>
-      <div className="about-us__content">
-        <div className="about-us__item">
-          <EmojiHappyIcon className="about-us__icon" />
-          <p className="about-us__text">{mission}</p>
+    <div>
+      <Navbar />
+      <div className="about-us">
+        <h2 className="about-us__heading">Our Mission, Vision, and Passion</h2>
+        <div className="about-us__content">
+          <div className="about-us__item">
+            <EmojiHappyIcon className="about-us__icon" />
+            <p className="about-us__text">{mission}</p>
+          </div>
+          <div className="about-us__item">
+            <EyeIcon className="about-us__icon" />
+            <p className="about-us__text">{vision}</p>
+          </div>
+          <div className="about-us__item">
+            <HeartIcon className="about-us__icon" />
+            <p className="about-us__text">{passion}</p>
+          </div>
         </div>
-        <div className="about-us__item">
-          <EyeIcon className="about-us__icon" />
-          <p className="about-us__text">{vision}</p>
-        </div>
-        <div className="about-us__item">
-          <HeartIcon className="about-us__icon" />
-          <p className="about-us__text">{passion}</p>
-        </div>
-      </div>
 
-      <div className="animal-flip-cards">
-        <h2>Meet Some of Our Adopted Friends</h2>
-        <div className="flip-cards-container">
-          {animalsData.map((animal, index) => (
-            <div key={index} className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <img src={animal.image} alt={animal.name} />
-                  <h3>{animal.name}</h3>
-                  <p>{animal.breed}</p>
-                </div>
-                <div className="flip-card-back">
-                  <h3>{animal.name}</h3>
-                  <p>{`Age: ${animal.age}`}</p>
-                  <p>{animal.description}</p>
-                  <p>Owner: {animal.owner}</p>
-                  <blockquote>{animal.testimonial}</blockquote>
+        <div className="animal-flip-cards">
+          <h2>Meet Some of Our Adopted Friends</h2>
+          <div className="flip-cards-container">
+            {animalsData.map((animal, index) => (
+              <div key={index} className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <img src={animal.image} alt={animal.name} />
+                    <h3>{animal.name}</h3>
+                    <p>{animal.breed}</p>
+                  </div>
+                  <div className="flip-card-back">
+                    <h3>{animal.name}</h3>
+                    <p>{`Age: ${animal.age}`}</p>
+                    <p>{animal.description}</p>
+                    <p>Owner: {animal.owner}</p>
+                    <blockquote>{animal.testimonial}</blockquote>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="animals-of-the-month">
-        <h2>Animals of the Month</h2>
-        <div className="animals-of-the-month-container">
-          {animalsOfMonthData.map((animal, index) => (
-            <div key={index} className="animal-of-the-month">
-              <h3>{animal.name}</h3>
-              <img src={animal.imageSrc} alt={animal.name} />
-              <p>{animal.description}</p>
-            </div>
-          ))}
+        <div className="animals-of-the-month">
+          <h2>Animals of the Month</h2>
+          <div className="animals-of-the-month-container">
+            {animalsOfMonthData.map((animal, index) => (
+              <div key={index} className="animal-of-the-month">
+                <h3>{animal.name}</h3>
+                <img src={animal.imageSrc} alt={animal.name} />
+                <p>{animal.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="sponsors">
-        <h2>Our Sponsors</h2>
-        <div className="sponsors-container">
-          {sponsorsPhotos.map((sponsor, index) => (
-            <img key={index} src={sponsor} alt={`Sponsor ${index}`} />
-          ))}
+        <div className="sponsors">
+          <h2>Our Sponsors</h2>
+          <div className="sponsors-container">
+            {sponsorsPhotos.map((sponsor, index) => (
+              <img key={index} src={sponsor} alt={`Sponsor ${index}`} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
