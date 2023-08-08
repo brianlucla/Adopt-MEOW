@@ -16,7 +16,7 @@ import Whisky from "../assets/images/cats/Whisky.png";
 
 import { useMutation } from "@apollo/client";
 import { ADD_FAVORITE, ADD_PROFILE } from "../utils/mutations";
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 // api test
 
@@ -37,36 +37,28 @@ const animalsCreate = () => {
     },
   })
     .then((resp) => {
-      
       return resp.json();
     })
     .then((data) => {
-      
       console.log("token", data);
 
-      return fetch(
-        "https://api.petfinder.com/v2/animals?limit=5",
-        {
-          headers: {
-            Authorization: data.token_type + " " + data.access_token,
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      );
+      return fetch("https://api.petfinder.com/v2/animals?limit=5", {
+        headers: {
+          Authorization: data.token_type + " " + data.access_token,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
     })
     .then((response) => {
-      
       return response.json();
     })
     .then((data) => {
-      
       console.log("pets", data);
     })
     .catch((err) => {
-      
       console.log("something went wrong", err);
     });
-}
+};
 
 animalsCreate();
 
@@ -78,7 +70,7 @@ const dummyEmail = "email@email.com";
 const dummySignup = () => {
   const [addProfile] = useMutation(ADD_PROFILE);
   const [addFavorite] = useMutation(ADD_FAVORITE);
-  
+
   const animalsObject = animalsCreate();
   const animalsArray = animalsObject.animals;
   console.log("animalsObject", animalsObject);
@@ -86,7 +78,7 @@ const dummySignup = () => {
     const { data } = addProfile({
       name: dummyName,
       email: dummyEmail,
-      password: dummyPass
+      password: dummyPass,
     });
     Auth.login(data.addUser.token);
   } catch (error) {
@@ -101,13 +93,12 @@ const dummySignup = () => {
 
   try {
     const { data } = addFavorite({
-      variables: {animalData: {...animalsArray[0]}}
+      variables: { animalData: { ...animalsArray[0] } },
     });
   } catch (error) {
     console.log(error);
   }
-
-}
+};
 
 dummySignup();
 

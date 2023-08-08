@@ -111,26 +111,32 @@ body,
   color:#ff00ff;
   text-shadow: 0,0, 10px #ff00ff;
 }
-
 .hoverable-menu-option {
-  position:relative;
-}
-
-.hoverable-menu-option:hover .hoverable-menu-content{
-  display:block;
-  border: 2px solid red;
+  position: relative;
+  transition-delay: 0.3s; /* Add a 0.3s delay before the hover effect */
 }
 
 .hoverable-menu-content {
-  color: #ff00ff;
-  justify-content: space-between;
-  display: flex;
-  gap: 20px;
-  padding: 40px;
-  margin: 0 auto;
-  align-items:center;
+  display: none;
+  position: absolute;
+  top: 100%; /* Position it below the hoverable-menu-option */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: 10px;
+  background-color: #1a202c;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s;
 }
 
+.hoverable-menu-option:hover .hoverable-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+}
 
 /* login styling */
 .login-signup-card {
