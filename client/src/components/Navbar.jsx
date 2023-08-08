@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/LOGO.png";
 import "../index.css";
+import LoginSignup from "./LoginSignup";
 
 const Navbar = () => {
   const menuOptions = [
@@ -18,6 +19,13 @@ const Navbar = () => {
     { label: "Contact Us", path: "/contact"},
     { label: "Favorites", path: "/favorites"},
   ];
+
+  const [showCard, setShowCard] = useState(false);
+  
+  const handleCardToggle = () => {
+    setShowCard(!showCard);
+    console.log("showCard", showCard);
+  }
 
   return (
     <nav className="navbar p-5 flex space-x-4 items-center justify-between">
@@ -44,9 +52,45 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <Link to="/login" className="navbar-login text-white font-bold">
+        <button
+          className="navbar-login text-white font-bold"
+          onClick={handleCardToggle}
+        >
           Login/Signup
-        </Link>
+        </button>
+        {showCard && <LoginSignup closeCard={handleCardToggle} />}
+        {/* {showCard && (
+          <div className="login-signup-card absolute z-10 bg-black mt-2 p-4">
+            <h2 className="text-white mb-4">Login or Sign Up</h2>
+            <form>
+              <div className="mb-4">
+                <label className="block text-white mb-2">Email</label>
+                <input
+                  type="email"
+                  className="w-full p-2 border rounded"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-white mb-2">Password</label>
+                <input
+                  type="password"
+                  className="w-full p-2 border rounded"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-white text-black py-2 px-4 rounded"
+              >
+                Login
+              </button>
+            </form>
+            <p className="mt-4 text-white">
+              Don't have an account? <link to="#">Sign Up</link>
+            </p>
+          </div>
+        )} */}
       </div>
     </nav>
   );

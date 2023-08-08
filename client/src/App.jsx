@@ -35,14 +35,7 @@ function App() {
         <Carousel />
         <IncrementalImages />
         <Footer />
-        <CatsPage />
-        <DogsPage />
-        <RabbitsPage />
         <Outlet />
-        <Favorites />
-        <AboutUs />
-        <ContactUs />
-
       </div>
     </ApolloProvider>
   );

@@ -132,6 +132,70 @@ body,
 }
 
 
+/* login styling */
+.login-signup-card {
+  max-width: 300px;
+  position: absolute;
+  left: 40em;
+  top: 5em;
+}
+
+.login-signup-modal {
+z-index: 1000;
+}
+
+.close-button {
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.login-signup-card h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.login-signup-card label {
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.login-signup-card input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-signup-card button {
+  background-color: #ffffff;
+  color: #1f3a68;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.login-signup-card button:hover {
+  background-color: #f0f0f0;
+}
+
+.login-signup-card p {
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
+.login-signup-card a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+
 /* card styling */
 .card {
   color: #fff;
