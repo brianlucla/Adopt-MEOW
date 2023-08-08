@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import pawPrint from "../assets/images/testimonials/paw.png";
 import animalBackground from "../assets/images/testimonials/animals.png";
+import Navbar from "./Navbar";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -86,6 +87,7 @@ const ContactUs = () => {
 
   return (
     <div>
+      <Navbar />
       <div class="grid-container">
         <div class="grid-item journey">
           <h2 className="text-white">Join Our Journey</h2>
