@@ -132,7 +132,6 @@ body,
   text-shadow: 0 0 10px #ff69b4; /* Change to your desired shade of pink */
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .hoverable-menu-option {
   position: relative;
   transition-delay: 0.3s; /* Add a 0.3s delay before the hover effect */
@@ -229,7 +228,6 @@ z-index: 1000;
   color: #ffffff;
   text-decoration: underline;
 }
-
 
 /* card styling */
 .card {
