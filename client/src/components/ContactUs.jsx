@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import pawPrint from "../assets/images/testimonials/paw.png";
-import animalBackground from "../assets/images/testimonials/animals.png";
+import pawPrint from "../assets/images/testimonial/paw-min.png";
+import animalBackground from "../assets/images/testimonial/animals-min.png";
 import Navbar from "./Navbar";
  import ReactPlayer from "react-player";
 

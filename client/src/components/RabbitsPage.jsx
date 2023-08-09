@@ -2,18 +2,20 @@ import React from "react";
 import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Card from "./Card";
-import Thumper from "../assets/rabbits/Thumper.png";
-import Snowflake from "../assets/rabbits/Snowflake.png";
-import Oreo from "../assets/rabbits/Oreo.png";
-import Cotton from "../assets/rabbits/Cottontail.png";
-import Marshmallow from "../assets/rabbits/Marshmallow.png";
-import Peanut from "../assets/rabbits/Peanut.png";
-import Honey from "../assets/rabbits/Honey.png";
-import Midnight from "../assets/rabbits/Midnight.png";
-import Ruby from "../assets/rabbits/Ruby.png";
-import Gizmo from "../assets/rabbits/Gizmo.png";
-import Clover from "../assets/rabbits/Clover.png";
-import Jasper from "../assets/rabbits/Jasper.png";
+
+// images imported 
+import Thumper from "../assets/images/rabbits/Clover.png";
+import Snowflake from "../assets/images/rabbits/Snowflake.png";
+import Oreo from "../assets/images/rabbits/Oreo.png";
+import Cotton from "../assets/images/rabbits/Cottontail.png";
+import Marshmallow from "../assets/images/rabbits/Marshmallow.png";
+import Peanut from "../assets/images/rabbits/Peanut.png";
+import Honey from "../assets/images/rabbits/Honey.png";
+import Midnight from "../assets/images/rabbits/Midnight.png";
+import Ruby from "../assets/images/rabbits/Ruby.png";
+import Gizmo from "../assets/images/rabbits/Gizmo.png";
+import Clover from "../assets/images/rabbits/Clover.png";
+import Jasper from "../assets/images/rabbits/Jasper.png";
 
 
 const RabbitsPage = () => {

@@ -6,18 +6,18 @@ import { GET_ME } from "../utils/queries";
 import { ADD_FAVORITE } from "../utils/mutations";
 import { ADD_ADOPTED } from "../utils/mutations";
 import Auth from '../utils/auth';
-import Max from "../assets/images/Dogs/Max.png";
-import Bethany from "../assets/images/Dogs/Bethany.png";
-import Rocky from "../assets/images/Dogs/Rocky.png";
-import LUNA from "../assets/images/Dogs/LUNA.png";
-import Duke from "../assets/images/Dogs/Duke.png";
-import Coco from "../assets/images/Dogs/Coco.png";
-import Martin from "../assets/images/Dogs/Martin.png";
-import Dexter from "../assets/images/Dogs/Dexter.png";
-import Zeus from "../assets/images/Dogs/Zeus.png";
-import Bruno from "../assets/images/Dogs/Bruno.png";
-import Dutches from "../assets/images/Dogs/Dutches.png";
-import Sadie from "../assets/images/Dogs/Sadie.png";
+import Max from "../assets/images/dogs/Max-min.png";
+import Bethany from "../assets/images/dogs/Bethany-min.png";
+import Rocky from "../assets/images/dogs/Rocky-min.png";
+import LUNA from "../assets/images/dogs/LUNA-min.png";
+import Duke from "../assets/images/dogs/Duke-min.png";
+import Coco from "../assets/images/dogs/Coco-min.png";
+import Martin from "../assets/images/dogs/Martin-min.png";
+import Dexter from "../assets/images/dogs/Dexter-min.png";
+import Zeus from "../assets/images/dogs/Zeus-min.png";
+import Bruno from "../assets/images/dogs/Bruno-min.png";
+import Dutches from "../assets/images/dogs/Dutches-min.png";
+import Sadie from "../assets/images/dogs/Sadie-min.png";
 
 
 const DogsPage = () => {

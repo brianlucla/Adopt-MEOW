@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import smileImage from "../assets/images/smile.png";
-import likeImage from "../assets/images/like.png";
-import groupImage from "../assets/images/group.png";
-import cameraImage from "../assets/images/camera.png";
+import smileImage from "../assets/images/icons/smile-min.png";
+import likeImage from "../assets/images/icons/like-min.png";
+import groupImage from "../assets/images/icons/group-min.png";
+import cameraImage from "../assets/images/icons/camera-min.png";
 import "../index.css";
 
 
 const IncrementalImages = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const numberPosition = 300; // Adjust this value as needed
+  const numberPosition = 300; 
 
   const getIncrementalNumber = (base) => {
     return Math.floor((scrollPosition / numberPosition) * base);
@@ -48,7 +48,7 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
-              <img src={smileImage} alt="Adoption" />
+              <img src={smileImage} alt="Adoption" className="img img-yellow"/>
             </div>
             <div className="line">
               {" "}
@@ -68,7 +68,7 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
-              <img src={likeImage} alt="Love" className="image" />
+              <img src={likeImage} alt="Love" className="image img-red" />
             </div>
             <div className="line">
               {" "}
@@ -88,7 +88,7 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
-              <img src={groupImage} alt="Families" className="image" />
+              <img src={groupImage} alt="Families" className="image img-green" />
             </div>
             <div className="line">
               {" "}
@@ -108,7 +108,7 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
-              <img src={cameraImage} alt="Events" className="image" />
+              <img src={cameraImage} alt="Events" className="image img-violet" />
             </div>
             <div className="line">
               {" "}

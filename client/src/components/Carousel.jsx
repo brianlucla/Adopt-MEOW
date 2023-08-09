@@ -4,15 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../index.css";
 
-import matthew from "../assets/images/matthew.png";
-import LUNA from "../assets/images/sofia(1).png";
-import quinton from "../assets/images/quinton.png";
-import jeff from "../assets/images/jeff.png";
-import michelle from "../assets/images/michelle.png";
-import bdog from "../assets/images/bdog.png";
-import meeks from "../assets/images/meeks.png";
-import left from "../assets/images/left-arrow.png";
-import right from "../assets/images/right-arrow.png";
+import matthew from "../assets/images/slide/matthew-min.png";
+import LUNA from "../assets/images/slide/sofia(1)-min.png";
+import quinton from "../assets/images/slide/quinton-min.png";
+import jeff from "../assets/images/slide/jeff-min.png";
+import michelle from "../assets/images/slide/michelle-min.png";
+import bdog from "../assets/images/slide/bdog-min.png";
+import meeks from "../assets/images/slide/meeks-min.png";
+import left from "../assets/images/icons/left-arrow-min.png";
+import right from "../assets/images/icons/right-arrow-min.png";
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;

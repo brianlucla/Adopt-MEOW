@@ -386,12 +386,47 @@ z-index: 1000;
 }
 
 .image {
-  margin-right: 10px; /* Adjust spacing between image and line */
+  margin-right: 10px;
 }
 
 .image img {
   max-width: 100px;
   max-height: 100px;
+}
+
+.img-yellow {
+  width: 150px;
+  border: solid 1px yellow;
+  background-color: yellow;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius:  100px;
+
+}
+.img-red {
+  width: 100px;
+  height: 100px;
+  border: solid 1px red;
+  background-color: red;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 10px;
+
+}
+
+.img-green {
+  width: 150px;
+  border: solid 1px #72ee88;
+  background-color: #72ee88;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 60px;
+
+}
+.img-violet {
+  width: 150px;
+  border: solid 1px violet;
+  background-color: violet;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 10px;
+
 }
 
 /* Vertical line */
