@@ -87,8 +87,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <>
       <div className="page-container">
         <div className="left-side">
           <div class="grid-container">
@@ -230,7 +229,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

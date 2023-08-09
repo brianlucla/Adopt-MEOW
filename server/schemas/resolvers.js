@@ -6,13 +6,17 @@ const resolvers = {
   Query: {
     
     me: async (parent, args, context) => {
-      if(context.profile) {
-        const profileData = await Profile.findOne({_id: context.user._id}).select('-__v -password');
+      if(context.user) {
+        const profileData = await Profile.findOne({_id: context.user._id}).select('-__v');
+        console.log(profileData)
+        return profileData;
       }
+
+      throw AuthenticationError;
     },
 
     favorites: async (parent, args, context) => {
-      if (context.profile) {
+      if (context.user) {
         const favoritesData = Profile.findById({_id: context.user._id}).select(favorites);
 
         return favoritesData;
@@ -22,7 +26,7 @@ const resolvers = {
     },
 
     adopted: async (parent, args, context) => {
-      if(context.profile) {
+      if(context.user) {
         const adoptedData = Profile.findById({_id: context.user._id}).select(adopted);
 
         return adoptedData;
@@ -62,7 +66,7 @@ const resolvers = {
 
     addFavorite: async (parent, { animalData }, context) => {
 
-      if (context.profile) {
+      if (context.user) {
         const favoriteData = await Profile.findByIdAndUpdate(
           {_id: context.user._id},
           {$push: {favorites: animalData}},
@@ -76,7 +80,7 @@ const resolvers = {
     },
 
     addAdopted: async (parent, { animalData }, context) => {
-      if (context.profile) {
+      if (context.user) {
         const adoptedData = await Profile.findByIdAndUpdate(
           {_id: context.user._id},
           {$push: {adopted: animalData}},
@@ -90,7 +94,7 @@ const resolvers = {
     },
 
     removeFavorite: async (parent, { animalID }, context) => {
-      if (context.profile) {
+      if (context.user) {
         const favoriteData = await Profile.findByIdAndUpdate(
           {_id: context.user._id},
           {$pull: {favorites: {animalID}}},
@@ -105,7 +109,7 @@ const resolvers = {
     },
 
     removeAdopted: async (parent, { animalID }, context) => {
-      if (context.profile) {
+      if (context.user) {
         const adoptedData = await Profile.findByIdAndUpdate(
           { _id: context.user._id },
           { $pull: { adopted: { animalID } } },

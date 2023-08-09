@@ -105,15 +105,14 @@ const RabbitsPage = () => {
   ];
 
   return (
-    <div>
-      <Navbar />
+    <>
       <Banner optionName="Rabbits" />
       <div className="card-row">
         {rabbits.map((rabbit) => (
           <Card key={rabbit.name} animal={rabbit} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

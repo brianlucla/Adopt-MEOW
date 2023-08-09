@@ -149,7 +149,6 @@ const AboutUs = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="about-us">
         <h2 className="about-us__heading">Our Mission, Vision, and Passion</h2>
         <div className="about-us__content">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ animal }) => {
+const Card = ({ animal, favoritesHandler }) => {
   const { name, breed, age, weight } = animal;
   
   return (
@@ -12,7 +12,7 @@ const Card = ({ animal }) => {
         <p>Age: {age}</p>
         <p>Weight: {weight}</p>
         <a href="#">Adopt Me</a>
-        <a href="#" onClick={() => onAddFavorite(animal)}>
+        <a href="#" onClick={() => favoritesHandler(animal)}>
           Favorite
         </a>
       </div>
