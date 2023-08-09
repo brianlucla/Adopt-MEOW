@@ -17,8 +17,12 @@ const Navbar = () => {
         { label: "Rabbits", path: "/rabbits" },
       ],
     },
-    { label: "Contact Us", path: "/contact"},
-    { label: "Favorites", path: "/favorites"},
+    { label: "Contact Us", path: "/contact" },
+    { label: "Favorites", path: "/favorites" },
+    {
+      label: "Donate",
+      path: "https://donate.stripe.com/test_bIYaHg6vZeJqa3K144",
+    },  //added donate link in the navbar
   ];
 
   const [showCard, setShowCard] = useState(false);
@@ -41,10 +45,19 @@ const Navbar = () => {
           {menuOptions.map((option, index) => (
             <li key={index} className="navbar-menu-item">
               {option.children ? (
-                  <HoverableMenuOption
-                    label={option.label}
-                    children={option.children}
-                  />
+                <HoverableMenuOption
+                  label={option.label}
+                  children={option.children}
+                />
+              ) : option.external ? ( //functionality to redirect user to stripe after clicking donate
+                <a
+                  href={option.path}
+                  className="navbar-menu-link text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {option.label}
+                </a>
               ) : (
                 <Link to={option.path} className="navbar-menu-link text-white">
                   {option.label}
