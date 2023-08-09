@@ -7,6 +7,7 @@ import { QUERY_ME } from "../utils/queries";
 import { ADD_FAVORITE } from "../utils/mutations";
 import { ADD_ADOPTED } from "../utils/mutations";
 import Auth from '../utils/auth';
+
 import Max from "../assets/images/dogs/Max-min.png";
 import Bethany from "../assets/images/dogs/Bethany-min.png";
 import Rocky from "../assets/images/dogs/Rocky-min.png";
@@ -19,6 +20,7 @@ import Zeus from "../assets/images/dogs/Zeus-min.png";
 import Bruno from "../assets/images/dogs/Bruno-min.png";
 import Dutches from "../assets/images/dogs/Dutches-min.png";
 import Sadie from "../assets/images/dogs/Sadie-min.png";
+
 
 
 const DogsPage = () => {

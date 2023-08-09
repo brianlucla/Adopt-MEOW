@@ -392,6 +392,7 @@ z-index: 1000;
   max-height: 100px;
 }
 
+
 .img-yellow {
   width: 150px;
   border: solid 1px yellow;
@@ -451,7 +452,6 @@ z-index: 1000;
   font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
-  
 }
 
 /* Media Queries */
@@ -599,6 +599,7 @@ footer img.logo:hover {
   animation: pulse 1.5s infinite;
   box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
 }
+
 
 /* pulsing effect for logo */
 @keyframes pulse {

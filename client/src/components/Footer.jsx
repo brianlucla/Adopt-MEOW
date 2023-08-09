@@ -1,6 +1,7 @@
 import React from "react";
 import { ApolloProvider } from "@apollo/client";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
+
 import LinkedInIcon from "../assets/images/icons/linkedin-min.png";
 import FacebookIcon from "../assets/images/icons/facebook-min.png";
 import InstagramIcon from "../assets/images/icons/instagram-min.png";
@@ -8,6 +9,7 @@ import TwitterIcon from "../assets/images/icons/twitter-min.png";
 import LOGO from "../assets/images/logo/LOGO-min.png";
 import "../index.css"; 
 import BackgroundImage from "../assets/images/testimonial/footer-background-min.png";
+
 const client = new ApolloClient({
   uri: "your-graphql-endpoint",
   cache: new InMemoryCache(),

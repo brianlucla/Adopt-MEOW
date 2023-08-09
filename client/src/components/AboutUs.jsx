@@ -13,10 +13,12 @@ import simbaImage from "../assets/images/testimonial/simbaImage-min.png";
 import oscarImage from "../assets/images/testimonial/oscarImage-min.png";
 import miloImage from "../assets/images/testimonial/miloImage-min.png";
 
+
 import fluffyImage from "../assets/images/testimonial/fluffyImage-min.png";
 import frodoImage from "../assets/images/testimonial/frodoImage-min.png";
 import bunjaminImage from "../assets/images/testimonial/bunjaminImage-min.png";
 import catrickImage from "../assets/images/testimonial/catrickImage-min.png";
+
 import Navbar from './Navbar';
 
 const AboutUs = () => {

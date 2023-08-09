@@ -8,7 +8,9 @@ import "../index.css";
 
 const IncrementalImages = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
+
   const numberPosition = 300; 
+
 
   const getIncrementalNumber = (base) => {
     return Math.floor((scrollPosition / numberPosition) * base);
@@ -48,7 +50,9 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
+
               <img src={smileImage} alt="Adoption" className="img img-yellow"/>
+
             </div>
             <div className="line">
               {" "}
@@ -68,7 +72,9 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
+
               <img src={likeImage} alt="Love" className="image img-red" />
+
             </div>
             <div className="line">
               {" "}
@@ -88,7 +94,9 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
+
               <img src={groupImage} alt="Families" className="image img-green" />
+
             </div>
             <div className="line">
               {" "}
@@ -108,7 +116,9 @@ const IncrementalImages = () => {
         {scrollPosition > numberPosition && (
           <div className="image-wrapper">
             <div className="image">
+
               <img src={cameraImage} alt="Events" className="image img-violet" />
+
             </div>
             <div className="line">
               {" "}
