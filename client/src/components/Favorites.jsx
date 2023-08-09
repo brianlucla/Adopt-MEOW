@@ -3,7 +3,7 @@ import Bella from '../assets/images/cats/Bella.png'
 import Bethany from "../assets/images/dogs/Bethany-min.png";
 import Navbar from "./Navbar";
 
-const Favorites = () => {
+export default function Favorites() {
   // Sample selected pets data (replace this with your actual data)
   const selectedPets = [
     {
@@ -36,8 +36,7 @@ const Favorites = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <>
       <div className="favorites-container">
         <h1 className="favorites-title">Your Favorites</h1>
         <div className="favorites-grid">
@@ -66,8 +65,8 @@ const Favorites = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
-};
+}
 
-export default Favorites;
+

@@ -1,8 +1,9 @@
 import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Card from "./Card";
+
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_ME } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 import { ADD_FAVORITE } from "../utils/mutations";
 import { ADD_ADOPTED } from "../utils/mutations";
 import Auth from '../utils/auth';
@@ -73,37 +74,44 @@ const DogsPage = () => {
     },
   ];
   const dogData = dogs[0];
-  // const [addFavorite] = useMutation(ADD_FAVORITE);
-  // const [addAdopted] = useMutation(ADD_ADOPTED);
+  const {loading, data} = useQuery(QUERY_ME);
+  const [addFavorite] = useMutation(ADD_FAVORITE);
+  const [addAdopted] = useMutation(ADD_ADOPTED);
 
-  // const user = data?.me || {}
+  if (loading) {
+    console.log("loading");
+  } else {
+    const user = data?.me || {};
+    console.log("This is my user: ", user);
+  }
 
-  // const handleAddFavorite = async (dogData) => {
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+  const handleAddFavorite = async (dogData) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   if(!token) {
-  //     return false;
-  //   }
+    console.log(token);
 
-  //   try {
-  //     const { data } = await addFavorite({variables: {animalData: {...dogData}}});
+    if(!token) {
+      return false;
+    }
 
-  //     console.log(data);
-  //   } catch(err) {
-  //     console.error(err);
-  //   }
-  // }
+    try {
+      const { data } = await addFavorite({variables: {animalData: {...dogData}}});
+
+      console.log(data);
+    } catch(err) {
+      console.error(err);
+    }
+  }
 
   return (
-    <div>
-      <Navbar />
+    <>
       <Banner optionName="Dogs" />
       <div className="card-row">
         {dogs.map((dog) => (
-          <Card key={dog.name} animal={dog}/>
+          <Card key={dog.name} animal={dog} favoritesHandler={handleAddFavorite}/>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ const typeDefs = `
     _id: ID!
     name: String!
     email: String!
-    Password: String!
+    password: String!
   }
 
   type Animal {

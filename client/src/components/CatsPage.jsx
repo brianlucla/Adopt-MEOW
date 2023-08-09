@@ -104,7 +104,6 @@ const CatsPage = () => {
 
   return (
     <div>
-      <Navbar />
       <Banner optionName="Cats" />
       <div className="card-row">
         {cats.map((cat) => (

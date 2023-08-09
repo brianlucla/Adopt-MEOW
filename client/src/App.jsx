@@ -14,8 +14,6 @@ import Footer from './components/Footer';
 import Favorites from "./components/Favorites";
 
 
-
-
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
@@ -24,13 +22,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
-        <Navbar />
-        <Carousel />
-        <IncrementalImages />
-        <Footer />
-        <Outlet />
-      </div>
+      
+      <Navbar />
+      <Outlet />
+      <Footer />
+      
     </ApolloProvider>
   );
 }
