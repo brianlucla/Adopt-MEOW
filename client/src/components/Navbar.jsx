@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/images/LOGO.png";
 import "../index.css";
 import LoginSignup from "./LoginSignup";
+import SignUp from "./SignUp";
 
 const Navbar = () => {
   const menuOptions = [
@@ -40,10 +41,10 @@ const Navbar = () => {
           {menuOptions.map((option, index) => (
             <li key={index} className="navbar-menu-item">
               {option.children ? (
-                <HoverableMenuOption
-                  label={option.label}
-                  children={option.children}
-                />
+                  <HoverableMenuOption
+                    label={option.label}
+                    children={option.children}
+                  />
               ) : (
                 <Link to={option.path} className="navbar-menu-link text-white">
                   {option.label}
@@ -52,10 +53,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <button
-          className="navbar-login text-white font-bold"
-          onClick={handleCardToggle}
-        >
+        <button className="navbar-login-button" onClick={handleCardToggle}>
           Login/Signup
         </button>
         {showCard && <LoginSignup closeCard={handleCardToggle} />}
