@@ -447,16 +447,6 @@ button {
   margin: 0;
 }
 
-a {
-  color: #1b89bc;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #065b83;
-  text-decoration: underline;
-}
-
 /* HEIGHT / WIDTH UTILS */
 .w-100 {
   width: 100%;
@@ -2002,22 +1992,6 @@ textarea {
 
 textarea {
   height: 150px;
-}
-
-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #4caf50; /* Green color for the submit button, you can change it to your preference */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049; /* Darker green on hover */
 }
 
 input[type='text'],
