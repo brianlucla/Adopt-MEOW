@@ -1,7 +1,11 @@
-import React from "react";
 import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Card from "./Card";
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ME } from "../utils/queries";
+import { ADD_FAVORITE } from "../utils/mutations";
+import { ADD_ADOPTED } from "../utils/mutations";
+import Auth from '../utils/auth';
 import Max from "../assets/images/Dogs/Max.png";
 import Bethany from "../assets/images/Dogs/Bethany.png";
 import Rocky from "../assets/images/Dogs/Rocky.png";
@@ -19,10 +23,10 @@ import Sadie from "../assets/images/Dogs/Sadie.png";
 const DogsPage = () => {
   const dogs = [
     {
+      animalID: "23",
       name: "Max",
-      age: "3 years",
+      type: "Dog",
       breed: "Golden Retriever",
-      weight: "70 lbs",
       image: Max,
     },
     {
@@ -67,42 +71,28 @@ const DogsPage = () => {
       weight: "15 lbs",
       image: Martin, 
     },
-    {
-      name: "Dexter",
-      age: "3 years",
-      breed: "Border Collie",
-      weight: "40 lbs",
-      image: Dexter, 
-    },
-    {
-      name: "Zeus",
-      age: "4 years",
-      breed: "Rottweiler",
-      weight: "90 lbs",
-      image: Zeus, 
-    },
-    {
-      name: "Bruno",
-      age: "2.5 years",
-      breed: "Dachshund",
-      weight: "12 lbs",
-      image: Bruno,
-    },
-    {
-      name: "Dutches",
-      age: "1 years",
-      breed: "Bulldog",
-      weight: "50 lbs",
-      image: Dutches, 
-    },
-    {
-      name: "Sadie",
-      age: "3.5 years",
-      breed: "Boxer",
-      weight: "65 lbs",
-      image: Sadie,
-    },
   ];
+  const dogData = dogs[0];
+  // const [addFavorite] = useMutation(ADD_FAVORITE);
+  // const [addAdopted] = useMutation(ADD_ADOPTED);
+
+  // const user = data?.me || {}
+
+  // const handleAddFavorite = async (dogData) => {
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+  //   if(!token) {
+  //     return false;
+  //   }
+
+  //   try {
+  //     const { data } = await addFavorite({variables: {animalData: {...dogData}}});
+
+  //     console.log(data);
+  //   } catch(err) {
+  //     console.error(err);
+  //   }
+  // }
 
   return (
     <div>
@@ -110,7 +100,7 @@ const DogsPage = () => {
       <Banner optionName="Dogs" />
       <div className="card-row">
         {dogs.map((dog) => (
-          <Card key={dog.name} animal={dog} />
+          <Card key={dog.name} animal={dog}/>
         ))}
       </div>
     </div>
