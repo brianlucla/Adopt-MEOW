@@ -32,8 +32,12 @@ const resolvers = {
 
   },
   Mutation: {
-    addProfile: async(parent, args) => {
-      const profile = await Profile.create(args);
+    addProfile: async(parent, {name, email, password}) => {
+      const profile = await Profile.create({
+        name: name,
+        email: email,
+        password: password
+      });
       const token = signToken(profile);
 
       return { token, profile };
@@ -45,6 +49,15 @@ const resolvers = {
       if (!profile) {
         throw AuthenticationError;
       }
+
+      const correctPass = await profile.isCorrectPassword(password);
+
+      if (!correctPass) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(profile);
+      return { token, profile };
     },
 
     addFavorite: async (parent, { animalData }, context) => {
