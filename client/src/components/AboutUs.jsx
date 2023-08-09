@@ -4,19 +4,21 @@ import EmojiHappyIcon from "@heroicons/react/solid/EmojiHappyIcon";
 import EyeIcon from "@heroicons/react/solid/EyeIcon";
 import HeartIcon from "@heroicons/react/solid/HeartIcon";
 
-import bellaImage from '../assets/images/testimonials/bellaImage.png'
-import maxImage from "../assets/images/testimonials/maxImage.png";
-import lunaImage from '../assets/images/testimonials/lunaImage.png'
-import rockyImage from "../assets/images/testimonials/rockyImage.png";
-import daisyImage from '../assets/images/testimonials/daisyImage.png'
-import simbaImage from "../assets/images/testimonials/simbaImage.png";
-import oscarImage from "../assets/images/testimonials/oscarImage.png";
-import miloImage from "../assets/images/testimonials/miloImage.png";
+import bellaImage from '../assets/images/testimonial/bellaImage-min.png'
+import maxImage from "../assets/images/testimonial/maxImage-min.png";
+import lunaImage from '../assets/images/testimonial/lunaImage-min.png'
+import rockyImage from "../assets/images/testimonial/rockyImage-min.png";
+import daisyImage from '../assets/images/testimonial/daisyImage-min.png'
+import simbaImage from "../assets/images/testimonial/simbaImage-min.png";
+import oscarImage from "../assets/images/testimonial/oscarImage-min.png";
+import miloImage from "../assets/images/testimonial/miloImage-min.png";
 
-import fluffyImage from "../assets/images/testimonials/fluffyImage.png";
-import frodoImage from "../assets/images/testimonials/frodoImage.png";
-import bunjaminImage from "../assets/images/testimonials/bunjaminImage.png";
-import catrickImage from "../assets/images/testimonials/catrickImage.png";
+
+import fluffyImage from "../assets/images/testimonial/fluffyImage-min.png";
+import frodoImage from "../assets/images/testimonial/frodoImage-min.png";
+import bunjaminImage from "../assets/images/testimonial/bunjaminImage-min.png";
+import catrickImage from "../assets/images/testimonial/catrickImage-min.png";
+
 import Navbar from './Navbar';
 
 const AboutUs = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Bella from '../assets/images/cats/Bella.png'
-import Bethany from "../assets/images/Dogs/Bethany.png";
+import Bethany from "../assets/images/dogs/Bethany-min.png";
 import Navbar from "./Navbar";
 
 export default function Favorites() {

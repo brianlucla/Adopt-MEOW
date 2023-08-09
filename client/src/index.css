@@ -132,7 +132,6 @@ body,
   text-shadow: 0 0 10px #ff69b4; /* Change to your desired shade of pink */
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .hoverable-menu-option {
   position: relative;
   transition-delay: 0.3s; /* Add a 0.3s delay before the hover effect */
@@ -229,7 +228,6 @@ z-index: 1000;
   color: #ffffff;
   text-decoration: underline;
 }
-
 
 /* card styling */
 .card {
@@ -386,12 +384,48 @@ z-index: 1000;
 }
 
 .image {
-  margin-right: 10px; /* Adjust spacing between image and line */
+  margin-right: 10px;
 }
 
 .image img {
   max-width: 100px;
   max-height: 100px;
+}
+
+
+.img-yellow {
+  width: 150px;
+  border: solid 1px yellow;
+  background-color: yellow;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius:  100px;
+
+}
+.img-red {
+  width: 100px;
+  height: 100px;
+  border: solid 1px red;
+  background-color: red;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 10px;
+
+}
+
+.img-green {
+  width: 150px;
+  border: solid 1px #72ee88;
+  background-color: #72ee88;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 60px;
+
+}
+.img-violet {
+  width: 150px;
+  border: solid 1px violet;
+  background-color: violet;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 10px;
+
 }
 
 /* Vertical line */
@@ -418,7 +452,6 @@ z-index: 1000;
   font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
-  
 }
 
 /* Media Queries */
@@ -566,6 +599,7 @@ footer img.logo:hover {
   animation: pulse 1.5s infinite;
   box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
 }
+
 
 /* pulsing effect for logo */
 @keyframes pulse {
