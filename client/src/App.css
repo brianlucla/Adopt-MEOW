@@ -897,9 +897,7 @@ button {
   text-align: right !important;
 }
 
-.text-primary {
-  color: #2d3e50 !important;
-}
+
 
 .text-info {
   color: #1bbc9b !important;
@@ -909,9 +907,22 @@ button {
   color: #e64c66 !important;
 }
 
-.text-default {
-  color: #aeaeae !important;
+.text-yellow {
+  color: yellow;
 }
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-violet {
+  color: rgb(255, 0, 255)
+}
+
 
 .text-light {
   color: #d9e9e8 !important;
@@ -1947,6 +1958,7 @@ label form [type='radio'] {
 
 
 /* style for contact us */
+/* style for contact us */
 
 .contact-us {
   max-width: 500px;
@@ -1970,6 +1982,7 @@ label form [type='radio'] {
   align-items: center;
   margin-bottom: 20px;
   position: relative;
+  justify-content: center;
 }
 
 .form-group label {
@@ -2077,14 +2090,42 @@ label[for='file'] {
 
 .journey {
   display: flex;
-  justify-content:flex-end; /* Align to the left side */
+  justify-content:left; /* Align to the left side */
   align-items: center; /* Center the content vertically */
 }
 
-/* Add responsive styles for the two-column grid on small screens */
-@media (min-width: 640px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
+.page-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 4em;
+}
+
+.left-side,
+.right-side {
+  flex-basis: 50%;
+}
+
+/* Media query for mobile devices */
+/* Media query for small screens */
+@media screen and (max-width: 768px){
+  .contact-us {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .contact-us h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    font-size: 14px;
   }
 }
 
@@ -2161,10 +2202,11 @@ label[for='file'] {
 .adopt-button,
 .remove-button {
   padding: 0.25rem 0.75rem;
-  border-radius: 0.25rem;
-  font-weight: bold;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  border: none;
+  box-shadow: none;
 }
 
 .adopt-button {
@@ -2178,7 +2220,7 @@ label[for='file'] {
 }
 
 .remove-button {
-  background-color: #800303;
+  background-color: #3e0101;
   color: white;
 }
 

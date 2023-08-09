@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import pawPrint from "../assets/images/testimonials/paw.png";
 import animalBackground from "../assets/images/testimonials/animals.png";
 import Navbar from "./Navbar";
+ import ReactPlayer from "react-player";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -17,13 +18,13 @@ const ContactUs = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   /* hook ueEffect for alert */
-   useEffect(() => {
-     if (isSubmitted) {
-       setTimeout(() => {
-         setIsSubmitted(false);
-       }, 3000); // remove the success message after 5 seconds
-     }
-   }, [isSubmitted]);
+  useEffect(() => {
+    if (isSubmitted) {
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000); // remove the success message after 5 seconds
+    }
+  }, [isSubmitted]);
 
   const handleChange = (e) => {
     const { name, checked, type } = e.target;
@@ -88,135 +89,149 @@ const ContactUs = () => {
   return (
     <div>
       <Navbar />
-      <div class="grid-container">
-        <div class="grid-item journey">
-          <h2 className="text-white">Join Our Journey</h2>
+      <div className="page-container">
+        <div className="left-side">
+          <div class="grid-container">
+            <div class="grid-item journey">
+              <h2 className="text-white">Join Our Journey</h2>
+            </div>
+
+            <div class="grid-item description">
+              <p className="text-white">
+                We invite you to be a part of our heartwarming journey. Whether
+                you are looking to adopt a furry friend or seeking valuable pet
+                care information, Adopt-Meow is here to guide you every step of
+                the way. Together, let's make the world a better place for our
+                beloved pets.
+              </p>
+              <ReactPlayer
+                url="https://www.youtube.com/watch?v=_eIPtag_FKY"
+                controls
+                loop
+                playing={true}
+                muted={true}
+              />
+            </div>
+          </div>
         </div>
-        <div class="grid-item description">
-          <p className="text-white">
-            We invite you to be a part of our heartwarming journey. Whether you
-            are looking to adopt a furry friend or seeking valuable pet care
-            information, Adopt-Meow is here to guide you every step of the way.
-            Together, let's make the world a better place for our beloved pets.
-          </p>
+        <div className="right-side">
+          <div className="contact-us">
+            <h2>
+              <img
+                src={pawPrint}
+                alt="Paw print"
+                style={{ marginRight: "10px", height: "30px", width: "30px" }}
+              />
+              Contact Us
+            </h2>
+            {isSubmitted && (
+              <div className="success-message">
+                Your form has been submitted successfully!
+              </div>
+            )}
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    height: "250px",
+                  }}
+                ></textarea>
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="checkbox"
+                  id="volunteer"
+                  name="volunteer"
+                  checked={formData.volunteer}
+                  onChange={handleChange}
+                />
+                <label htmlFor="volunteer">Volunteer</label>
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="checkbox"
+                  id="adopt"
+                  name="adopt"
+                  checked={formData.adopt}
+                  onChange={handleChange}
+                />
+                <label htmlFor="adopt">Adopt</label>
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="checkbox"
+                  id="inquiry"
+                  name="inquiry"
+                  checked={formData.inquiry}
+                  onChange={handleChange}
+                />
+                <label htmlFor="inquiry">Inquiry</label>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="file">Upload File</label>
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  onChange={handleChange}
+                  accept=".jpg, .jpeg, .png, .pdf"
+                />
+              </div>
+
+              <button type="submit" className="adopt-button">
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div className="contact-us">
-        <h2>
-          <img
-            src={pawPrint}
-            alt="Paw print"
-            style={{ marginRight: "10px", height: "30px", width: "30px" }}
-          />
-          Contact Us
-        </h2>
-        {isSubmitted && (
-          <div className="success-message">
-            Your form has been submitted successfully!
-          </div>
-        )}
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-              }}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-              }}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(${animalBackground})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                height: "250px",
-              }}
-            ></textarea>
-          </div>
-
-          <div className="form-group">
-            <input
-              type="checkbox"
-              id="volunteer"
-              name="volunteer"
-              checked={formData.volunteer}
-              onChange={handleChange}
-            />
-            <label htmlFor="volunteer">Volunteer</label>
-          </div>
-
-          <div className="form-group">
-            <input
-              type="checkbox"
-              id="adopt"
-              name="adopt"
-              checked={formData.adopt}
-              onChange={handleChange}
-            />
-            <label htmlFor="adopt">Adopt</label>
-          </div>
-
-          <div className="form-group">
-            <input
-              type="checkbox"
-              id="inquiry"
-              name="inquiry"
-              checked={formData.inquiry}
-              onChange={handleChange}
-            />
-            <label htmlFor="inquiry">Inquiry</label>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="file">Upload File</label>
-            <input
-              type="file"
-              id="file"
-              name="file"
-              onChange={handleChange}
-              accept=".jpg, .jpeg, .png, .pdf"
-            />
-          </div>
-
-          <button type="submit">Submit</button>
-        </form>
       </div>
     </div>
   );
 };
 
-
 export default ContactUs;
-

@@ -5,7 +5,9 @@ import LinkedInIcon from "../assets/images/linkedin.png";
 import FacebookIcon from "../assets/images/facebook.png";
 import InstagramIcon from "../assets/images/instagram.png";
 import TwitterIcon from "../assets/images/twitter.png";
-import LOGO from "../assets/images/logo.png";
+import LOGO from "../assets/images/LOGO.png";
+import "../index.css"; // Make sure to import your CSS file
+import BackgroundImage from "../assets/images/testimonials/footer-background.png"; // Replace with your actual image path
 
 const client = new ApolloClient({
   uri: "your-graphql-endpoint",
@@ -15,34 +17,38 @@ const client = new ApolloClient({
 const Footer = () => {
   return (
     <ApolloProvider client={client}>
-      <footer className="bg-gray-800 py-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex flex-col">
-            <a href="https://linkedin.com" className="hover:text-blue">
-              <img src={LinkedInIcon} alt="LinkedIn" className="w-8 h-8 mb-2" />
+      <footer
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)), url(${BackgroundImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        <div>
+          <div className="icons-container">
+            {" "}
+            {/* Add className for icons container */}
+            <a href="https://linkedin.com">
+              <img src={LinkedInIcon} alt="LinkedIn" />
             </a>
-            <a href="https://facebook.com" className="hover:text-blue-500">
-              <img src={FacebookIcon} alt="Facebook" className="w-8 h-8 mb-2" />
+            <a href="https://facebook.com">
+              <img src={FacebookIcon} alt="Facebook" />
             </a>
-            <a href="https://instagram.com" className="hover:text-pink-500">
-              <img
-                src={InstagramIcon}
-                alt="Instagram"
-                className="w-8 h-8 mb-2"
-              />
+            <a href="https://instagram.com">
+              <img src={InstagramIcon} alt="Instagram" />
             </a>
-            <a href="https://twitter.com" className="hover:text-blue-400">
-              <img src={TwitterIcon} alt="Twitter" className="w-8 h-8 mb-2" />
+            <a href="https://twitter.com">
+              <img src={TwitterIcon} alt="Twitter" />
             </a>
           </div>
-          <div>
-            <img
-              src="../assets/images/LOGO.png"
-              alt="Logo"
-              className="w-16 h-16"
-            />
+          <div className="logo-container">
+            {" "}
+            {/* Add className for logo container */}
+            <img src={LOGO} alt="Logo" className="logo" />
           </div>
         </div>
+        <p>&copy;2023 AdoptMeow. All rights reserved.</p>
       </footer>
     </ApolloProvider>
   );
