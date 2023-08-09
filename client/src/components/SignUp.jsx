@@ -63,7 +63,7 @@ const SignUp = ({ closeCard, handleLoginToggle }) => {
             <label className="block text-white mb-2">Username</label>
             <input
               type="username"
-              name="username"
+              name="name"
               value={userFormData.username}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"

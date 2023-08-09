@@ -33,12 +33,15 @@ const LoginSignup = ({ closeCard }) => {
 
     try {
       const { data } = await login({
-        variables: { ...userFormData },
+        variables: {
+          email: userFormData.email,
+          password: userFormData.password,
+        },
       });
-      console.log(data);
+      console.log("Login data:", data);
       Auth.login(data.login.token);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     setUserFormData({
