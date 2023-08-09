@@ -897,9 +897,7 @@ button {
   text-align: right !important;
 }
 
-.text-primary {
-  color: #2d3e50 !important;
-}
+
 
 .text-info {
   color: #1bbc9b !important;
@@ -909,9 +907,22 @@ button {
   color: #e64c66 !important;
 }
 
-.text-default {
-  color: #aeaeae !important;
+.text-yellow {
+  color: yellow;
 }
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-violet {
+  color: rgb(255, 0, 255)
+}
+
 
 .text-light {
   color: #d9e9e8 !important;

@@ -21,6 +21,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 .app {
   height: 100%;
@@ -350,69 +351,116 @@ z-index: 1000;
 }
 
 /* incremental styling */
-.flex {
+/* Flex container for the main content */
+.flex-container {
   display: flex;
+  align-items: center;
+  padding-left: 10em;
+  margin-bottom: 5em;
 }
 
-.text-left {
-  text-align: left;
+/* Text container for the "Welcome to AdoptMeow!" text */
+.text-container {
+  flex-basis: 50%;
+  padding-right: 3em;
+  
 }
 
-.text-right {
-  text-align: right;
+.text {
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.container {
-  display:flex;
+/* Image container for the images with incremental numbers */
+.image-container {
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
 }
 
-.text-container {
-  flex: 1;
-  margin-left: 50px;
-  border: 2px solid white;
-}
-
-.image-container {
+.image-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  margin-left: 50%;
-  flex-direction: row;
-  align-items:flex-end;
-  margin-bottom: 1rem;
-  gap: 50px;
-  border: 2px solid white;
-}
-
-.image-container:hover {
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  align-items: center;
+  margin-top: 20px;
+  
 }
 
 .image {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 0.5rem;
+  margin-right: 10px; /* Adjust spacing between image and line */
 }
 
-@media (min-width: 768px) {
-  .card {
-    width: calc(50% - 1rem); /* Two cards per row on medium screens */
+.image img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+/* Vertical line */
+.line {
+  width: 2px; /* Adjust the width of the vertical line */
+  height: 100%; /* Vertical line covers full height */
+  background-color: #72ee88; /* Color of the vertical line */
+  margin-right: 10px; /* Adjust spacing between line and text */
+  margin-left: 10px; /* Add margin to the left of the line */
+}
+
+.text-right {
+  text-align: left; /* Adjust alignment for the number/text */
+  margin-left: 3em;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px; /* Adjust spacing between number and title */
+}
+
+.number-title {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+
+  .text-container,
+  .image-container {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .text-container {
+    margin-bottom: 20px;
+  }
+
+  .image-wrapper {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .text-right {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 10px; /* Add margin to the top */
+  }
+
+  .number {
+    margin-right: 0; /* Remove margin on smaller screens */
   }
 }
 
-@media (min-width: 992px) {
-  .card {
-    width: calc(33.33% - 1rem);
 
-  }
-}
-
-@media (min-width: 1200px) {
-  .card {
-    width: calc(25% - 1rem);
-  }
-}
-
+/* styling for footer components */
 /* styling for footer components */
 footer {
   background-color: #1a202c;
