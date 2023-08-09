@@ -4,6 +4,8 @@ const typeDefs = `
     name: String!
     email: String!
     password: String!
+    favorites: [Animal]
+    adopted: [Animal]
   }
 
   type Animal {

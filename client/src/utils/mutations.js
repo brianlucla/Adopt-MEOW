@@ -30,6 +30,7 @@ export const ADD_FAVORITE = gql`
       _id
       name
       email
+      password
       favorites {
         animalID
         type
@@ -50,6 +51,7 @@ export const ADD_ADOPTED = gql`
       _id
       name
       email
+      password
       adopted {
         animalID
         type
