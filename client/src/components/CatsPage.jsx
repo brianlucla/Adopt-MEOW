@@ -3,111 +3,149 @@ import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Card from "./Card";
 
-import Bella from "../assets/images/cats/Bella.png";
-import Chuckie from "../assets/images/cats/Chuckie.png";
-import Cleo from "../assets/images/cats/Cleo.png";
-import Khloe from "../assets/images/cats/Khloe.png";
-import Leo from "../assets/images/cats/Leo.png";
-import Luna from "../assets/images/cats/Luna.png";
-import Nala from "../assets/images/cats/Nala.png";
-import Oliver from "../assets/images/cats/Oliver.png";
-import Simba from "../assets/images/cats/simba.png";
-import Whisky from "../assets/images/cats/Whisky.png";
+import { useState, useEffect } from "react";
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
+import { ADD_FAVORITE } from "../utils/mutations";
+import { ADD_ADOPTED } from "../utils/mutations";
+import Auth from "../utils/auth";
+
+const petSecret = "UuaZraj9r0CLnS1OkbSh8CaMIcSQhXMa0u1u7PnT";
+const petKey = "6Fgy2dq8MMWNoE9dKpRVKSzoJpJB1P5YQs2IPuSwq2ijksMbZ5";
+
+const CatsDataFun = async () => {
+  try {
+    const tokenResponse = await fetch(
+      "https://api.petfinder.com/v2/oauth2/token",
+      {
+        method: "POST",
+        body:
+          "grant_type=client_credentials&client_id=" +
+          petKey +
+          "&client_secret=" +
+          petSecret,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+
+    const tokenData = await tokenResponse.json();
+    console.log("token", tokenData);
+    
+    const animalResponse = await fetch(
+      "https://api.petfinder.com/v2/animals?limit=20&type=Cat",
+      {
+        headers: {
+          Authorization: tokenData.token_type + " " + tokenData.access_token,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+
+    const animalData = await animalResponse.json();
+    return animalData.animals;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const CatsPage = () => {
-  const cats = [
-    {
-      name: "Simba",
-      age: "2 years",
-      breed: "Bengal",
-      weight: "12 lbs",
-      image: Simba,
-    },
-    {
-      name: "Nala",
-      age: "1.5 years",
-      breed: "Persian",
-      weight: "10 lbs",
-      image: Nala,
-    },
-    {
-      name: "Gizmo",
-      age: "3 years",
-      breed: "Sphynx",
-      weight: "8 lbs",
-      image: Chuckie,
-    },
-    {
-      name: "LUNA",
-      age: "4 years",
-      breed: "Scottish Fold",
-      weight: "11 lbs",
-      image: Luna,
-    },
-    {
-      name: "Oliver",
-      age: "5 years",
-      breed: "Ragdoll",
-      weight: "10 lbs",
-      image: Oliver,
-    },
-    {
-      name: "Cleo",
-      age: "6 years",
-      breed: "Russian Blue",
-      weight: "9.5 lbs",
-      image: Cleo,
-    },
-    {
-      name: "Whisky",
-      age: "1 years",
-      breed: "Siamese",
-      weight: "7 lbs",
-      image: Whisky,
-    },
-    {
-      name: "Bella",
-      age: "3 years",
-      breed: "Maine Coon",
-      weight: "13 lbs",
-      image: Bella,
-    },
-    {
-      name: "Chuckie",
-      age: "2 years",
-      breed: "American Short Hair",
-      weight: "10 lbs",
-      image: Chuckie,
-    },
-    {
-      name: "Khloe",
-      age: "4 years",
-      breed: "Abyssinian",
-      weight: "9 lbs",
-      image: Khloe,
-    },
-    {
-      name: "Leo",
-      age: "2.5 years",
-      breed: "British Shorthair",
-      weight: "12 lbs",
-      image: Leo,
-    },
-    {
-      name: "Danger",
-      age: "1 years",
-      breed: "Bengal",
-      weight: "11 lbs",
-      image: Chuckie,
-    },
-  ];
+  const [cats, setCats] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const animalsArray = await CatsDataFun();
+        const filteredAnimals = await animalsArray.filter(
+          (animal) => animal.photos.length > 0
+        );
+
+        console.log("filtered Array", filteredAnimals);
+
+        if (animalsArray.length) {
+          const transformedCats = filteredAnimals.map((animal) => ({
+            name: animal.name,
+            breed: animal.breeds.primary,
+            type: animal.type,
+            animalID: JSON.stringify(animal.id),
+            age: animal.age,
+            size: animal.size,
+            photoURL: animal.photos[0].full,
+          }));
+
+          setCats(transformedCats);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  const { loading, data } = useQuery(QUERY_ME);
+  const [addFavorite] = useMutation(ADD_FAVORITE);
+  const [addAdopted] = useMutation(ADD_ADOPTED);
+
+  if (loading) {
+    console.log("loading");
+  } else {
+    const user = data?.me || {};
+    console.log("This is my user: ", user);
+  }
+
+  const handleAddFavorite = async (catData) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    console.log(token);
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data } = await addFavorite({
+        variables: { animalData: { ...catData } },
+      });
+
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleAddAdopted = async (catData) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    console.log(token);
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data } = await addAdopted({
+        variables: { animalData: { ...catData } },
+      });
+
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>
       <Banner optionName="Cats" />
       <div className="card-row">
         {cats.map((cat) => (
-          <Card key={cat.name} animal={cat} />
+          <Card
+            key={cat.name}
+            animal={cat}
+            favoritesHandler={handleAddFavorite}
+            adoptedHandler={handleAddAdopted}
+          />
         ))}
       </div>
     </div>

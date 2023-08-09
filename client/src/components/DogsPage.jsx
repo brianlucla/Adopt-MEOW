@@ -2,80 +2,89 @@ import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Card from "./Card";
 
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from "../utils/queries";
 import { ADD_FAVORITE } from "../utils/mutations";
 import { ADD_ADOPTED } from "../utils/mutations";
 import Auth from '../utils/auth';
 
-import Max from "../assets/images/dogs/Max-min.png";
-import Bethany from "../assets/images/dogs/Bethany-min.png";
-import Rocky from "../assets/images/dogs/Rocky-min.png";
-import LUNA from "../assets/images/dogs/LUNA-min.png";
-import Duke from "../assets/images/dogs/Duke-min.png";
-import Coco from "../assets/images/dogs/Coco-min.png";
-import Martin from "../assets/images/dogs/Martin-min.png";
-import Dexter from "../assets/images/dogs/Dexter-min.png";
-import Zeus from "../assets/images/dogs/Zeus-min.png";
-import Bruno from "../assets/images/dogs/Bruno-min.png";
-import Dutches from "../assets/images/dogs/Dutches-min.png";
-import Sadie from "../assets/images/dogs/Sadie-min.png";
+const petSecret = "UuaZraj9r0CLnS1OkbSh8CaMIcSQhXMa0u1u7PnT";
+const petKey = "6Fgy2dq8MMWNoE9dKpRVKSzoJpJB1P5YQs2IPuSwq2ijksMbZ5";
 
+const DogsDataFun = async () => {
+  try {
+    const tokenResponse = await fetch(
+      "https://api.petfinder.com/v2/oauth2/token",
+      {
+        method: "POST",
+        body:
+          "grant_type=client_credentials&client_id=" +
+          petKey +
+          "&client_secret=" +
+          petSecret,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
 
+    const tokenData = await tokenResponse.json();
+    console.log("token", tokenData);
+
+    const animalResponse = await fetch(
+      "https://api.petfinder.com/v2/animals?limit=20&type=Dog",
+      {
+        headers: {
+          Authorization: tokenData.token_type + " " + tokenData.access_token,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+
+    const animalData = await animalResponse.json();
+    // console.log(animalData);
+    return animalData.animals;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const DogsPage = () => {
-  const dogs = [
-    {
-      animalID: "23",
-      name: "Max",
-      type: "Dog",
-      breed: "Golden Retriever",
-      photoURL: Max,
-    },
-    {
-      name: "Bethany",
-      age: "2 years",
-      breed: "Labrador Retriever",
-      weight: "80 lbs",
-      photoURL: Bethany,
-    },
-    {
-      name: "Rocky",
-      age: "4 years",
-      breed: "German Shepard",
-      weight: "80 lbs",
-      photoURL: Rocky,
-    },
-    {
-      name: "LUNA",
-      age: "1.5 years",
-      breed: "Siberian Husky",
-      weight: "55 lbs",
-      photoURL: LUNA, 
-    },
-    {
-      name: "Duke Wellington",
-      age: "5 years",
-      breed: "Beagle",
-      weight: "30 lbs",
-      photoURL: Duke, 
-    },
-    {
-      name: "Coco",
-      age: "2 years",
-      breed: "French Bulldog",
-      weight: "25 lbs",
-      photoURL: Coco,
-    },
-    {
-      name: "Martin",
-      age: "6 years",
-      breed: "Poodle",
-      weight: "15 lbs",
-      photoURL: Martin, 
-    },
-  ];
-  const dogData = dogs[0];
+  
+  const [dogs, setDogs] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const animalsArray = await DogsDataFun();
+        const filteredAnimals = await animalsArray.filter((animal) => animal.photos.length > 0);
+
+        console.log("filtered Array", filteredAnimals);
+
+        if(animalsArray.length){
+          const transformedDogs = filteredAnimals.map((animal) => ({
+            name: animal.name,
+            breed: animal.breeds.primary,
+            type: animal.type,
+            animalID: JSON.stringify(animal.id),
+            age: animal.age,
+            size: animal.size,
+            photoURL: animal.photos[0].full
+          })
+          );
+  
+          console.log("filtered animals array:", transformedDogs);
+          setDogs(transformedDogs);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+  
   const {loading, data} = useQuery(QUERY_ME);
   const [addFavorite] = useMutation(ADD_FAVORITE);
   const [addAdopted] = useMutation(ADD_ADOPTED);
@@ -105,12 +114,32 @@ const DogsPage = () => {
     }
   }
 
+  const handleAddAdopted = async (dogData) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    console.log(token);
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data } = await addAdopted({
+        variables: { animalData: { ...dogData } },
+      });
+
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <>
       <Banner optionName="Dogs" />
       <div className="card-row">
         {dogs.map((dog) => (
-          <Card key={dog.name} animal={dog} favoritesHandler={handleAddFavorite}/>
+          <Card key={dog.name} animal={dog} favoritesHandler={handleAddFavorite} adoptedHandler={handleAddAdopted}/>
         ))}
       </div>
     </>

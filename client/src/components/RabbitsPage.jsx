@@ -3,108 +3,138 @@ import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Card from "./Card";
 
-// images imported 
-import Thumper from "../assets/images/rabbits/Clover.png";
-import Snowflake from "../assets/images/rabbits/Snowflake.png";
-import Oreo from "../assets/images/rabbits/Oreo.png";
-import Cotton from "../assets/images/rabbits/Cottontail.png";
-import Marshmallow from "../assets/images/rabbits/Marshmallow.png";
-import Peanut from "../assets/images/rabbits/Peanut.png";
-import Honey from "../assets/images/rabbits/Honey.png";
-import Midnight from "../assets/images/rabbits/Midnight.png";
-import Ruby from "../assets/images/rabbits/Ruby.png";
-import Gizmo from "../assets/images/rabbits/Gizmo.png";
-import Clover from "../assets/images/rabbits/Clover.png";
-import Jasper from "../assets/images/rabbits/Jasper.png";
+import { useState, useEffect } from "react";
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
+import { ADD_FAVORITE } from "../utils/mutations";
+import { ADD_ADOPTED } from "../utils/mutations";
+import Auth from "../utils/auth";
 
+const petSecret = "UuaZraj9r0CLnS1OkbSh8CaMIcSQhXMa0u1u7PnT";
+const petKey = "6Fgy2dq8MMWNoE9dKpRVKSzoJpJB1P5YQs2IPuSwq2ijksMbZ5";
+
+const RabbitsDataFun = async () => {
+  try {
+    const tokenResponse = await fetch(
+      "https://api.petfinder.com/v2/oauth2/token",
+      {
+        method: "POST",
+        body:
+          "grant_type=client_credentials&client_id=" +
+          petKey +
+          "&client_secret=" +
+          petSecret,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+
+    const tokenData = await tokenResponse.json();
+    console.log("token", tokenData);
+
+    const animalResponse = await fetch(
+      "https://api.petfinder.com/v2/animals?limit=20&type=Rabbit",
+      {
+        headers: {
+          Authorization: tokenData.token_type + " " + tokenData.access_token,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+
+    const animalData = await animalResponse.json();
+    // console.log(animalData);
+    return animalData.animals;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const RabbitsPage = () => {
-  const rabbits = [
-    {
-      name: "Thumper",
-      age: "1.5 years",
-      breed: "Holland Lop",
-      weight: "4 lbs",
-      image: Thumper,
-    },
-    {
-      name: "Snowflake",
-      age: "2 years",
-      breed: "Mini Rex",
-      weight: "3.5 lbs",
-      image: Snowflake,
-    },
-    {
-      name: "Oreo",
-      age: "3 years",
-      breed: "Netherland Dwarf",
-      weight: "2.5 lbs",
-      image: Oreo,
-    },
-    {
-      name: "Cottontail",
-      age: "1 years",
-      breed: "Lionhead",
-      weight: "5 lbs",
-      image: Cotton,
-    },
-    {
-      name: "Marshmallow",
-      age: "4 years",
-      breed: "English Lop",
-      weight: "6 lbs",
-      image: Marshmallow, 
-    },
-    {
-      name: "Peanut",
-      age: "2.5 years",
-      breed: "Dwarf Hotot",
-      weight: "3 lbs",
-      image: Peanut,
-    },
-    {
-      name: "Honey",
-      age: "3 years",
-      breed: "Flemish Giant",
-      weight: "12 lbs",
-      image: Honey, 
-    },
-    {
-      name: "Midnight",
-      age: "2 years",
-      breed: "Mini Lop",
-      weight: "4.5 lbs",
-      image: Midnight,
-    },
-    {
-      name: "Ruby",
-      age: "4 years",
-      breed: "Californian",
-      weight: "8 lbs",
-      image: Ruby,
-    },
-    {
-      name: "Gizmo",
-      age: "2.5 years",
-      breed: "Rex",
-      weight: "5.5 lbs",
-      image: Gizmo,
-    },
-    {
-      name: "Clover",
-      age: "1 years",
-      breed: "Polish",
-      weight: "2 lbs",
-      image: Clover, 
-    },
-    {
-      name: "Jasper",
-      age: "3.5 years",
-      breed: "Harlequin",
-      weight: "7 lbs",
-      image: Jasper, 
-    },
-  ];
+  const [rabbits, setRabbits] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const animalsArray = await RabbitsDataFun();
+        const filteredAnimals = await animalsArray.filter(
+          (animal) => animal.photos.length > 0
+        );
+
+        console.log("filtered Array", filteredAnimals);
+
+        if (animalsArray.length) {
+          const transformedRabbits = filteredAnimals.map((animal) => ({
+            name: animal.name,
+            breed: animal.breeds.primary,
+            type: animal.type,
+            animalID: JSON.stringify(animal.id),
+            age: animal.age,
+            size: animal.size,
+            photoURL: animal.photos[0].full,
+          }));
+
+          setRabbits(transformedRabbits);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  const { loading, data } = useQuery(QUERY_ME);
+  const [addFavorite] = useMutation(ADD_FAVORITE);
+  const [addAdopted] = useMutation(ADD_ADOPTED);
+
+  if (loading) {
+    console.log("loading");
+  } else {
+    const user = data?.me || {};
+    console.log("This is my user: ", user);
+  }
+
+  const handleAddFavorite = async (rabbitData) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    console.log(token);
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data } = await addFavorite({
+        variables: { animalData: { ...rabbitData } },
+      });
+
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleAddAdopted = async (rabbitData) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    console.log(token);
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data } = await addAdopted({
+        variables: { animalData: { ...rabbitData } },
+      });
+
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
