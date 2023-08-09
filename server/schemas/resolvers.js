@@ -7,7 +7,9 @@ const resolvers = {
     
     me: async (parent, args, context) => {
       if(context.user) {
-        const profileData = await Profile.findOne({_id: context.user._id}).select('-__v');
+        const profileData = await Profile.findOne({_id: context.user._id}).select('-__v')
+          .populate('favorites')
+          .populate('adopted');
         console.log(profileData)
         return profileData;
       }
@@ -43,6 +45,7 @@ const resolvers = {
         password: password
       });
       const token = signToken(profile);
+      console.log(token);
 
       return { token, profile };
     },
@@ -65,7 +68,7 @@ const resolvers = {
     },
 
     addFavorite: async (parent, { animalData }, context) => {
-
+      console.log(context.user);
       if (context.user) {
         const favoriteData = await Profile.findByIdAndUpdate(
           {_id: context.user._id},
@@ -75,6 +78,7 @@ const resolvers = {
         
         return favoriteData;
       }
+
       throw AuthenticationError;
 
     },

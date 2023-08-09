@@ -1,8 +1,8 @@
 import './App.css';
 import './index.css';
 import { Outlet } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
+import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import 'tailwindcss/tailwind.css';
@@ -13,20 +13,30 @@ import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 import Favorites from "./components/Favorites";
 
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
 
+const authLink = setContext((parent, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 const client = new ApolloClient({
-  uri: '/graphql',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      
       <Navbar />
       <Outlet />
-      <Footer />
-      
+      <Footer />  
     </ApolloProvider>
   );
 }
