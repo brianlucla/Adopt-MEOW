@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
-import "../index.css";
+import "../App.css";
 
 const SignUp = ({ closeCard, handleLoginToggle }) => {
   const [userFormData, setUserFormData] = useState({
