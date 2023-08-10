@@ -43,7 +43,7 @@ npm run dev
 
 ## 🧐 Usage 🧐
 
-Upon accessing AdoptMeow, you can: 
+Upon accessing AdoptMeow, you can:
 
 - browse a list of available pets
 - click on pet's card to view more details. 
