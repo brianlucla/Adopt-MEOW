@@ -2,6 +2,7 @@ import React from "react";
 import Bella from '../assets/images/cats/Bella.png'
 import Bethany from "../assets/images/dogs/Bethany-min.png";
 import Navbar from "./Navbar";
+import "../App.css";
 
 export default function Favorites() {
   // Sample selected pets data (replace this with your actual data)
