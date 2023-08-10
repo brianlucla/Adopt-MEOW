@@ -98,15 +98,15 @@ const resolvers = {
     },
 
     removeFavorite: async (parent, { animalID }, context) => {
+      console.log("USER CONTEXT: ", context.user);
       if (context.user) {
         const favoriteData = await Profile.findByIdAndUpdate(
           {_id: context.user._id},
-          {$pull: {favorites: {animalID}}},
+          {$pull: {favorites: { animalID }}},
           {new:true},
         );
-
+        console.log("FAVORITES DATA: ", favoriteData);
         return favoriteData;
-
       }
 
       throw AuthenticationError;

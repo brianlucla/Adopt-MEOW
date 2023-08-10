@@ -67,7 +67,7 @@ export const ADD_ADOPTED = gql`
 `;
 
 export const REMOVE_FAVORITE = gql`
-  mutation removeFavorite($animalID: animalID!) {
+  mutation removeFavorite($animalID: String!) {
     removeFavorite(animalID: $animalID) {
       _id
       name
@@ -87,7 +87,7 @@ export const REMOVE_FAVORITE = gql`
 `;
 
 export const REMOVE_ADOPTED = gql`
-  mutation removeAdopted($animalID: animalID!) {
+  mutation removeAdopted($animalID: String!) {
     removeAdopted(animalID: $animalID) {
       _id
       name

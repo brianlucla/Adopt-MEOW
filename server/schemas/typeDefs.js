@@ -48,8 +48,8 @@ const typeDefs = `
     addFavorite(animalData: Animaladd!): Profile
     addAdopted(animalData: Animaladd!): Profile
 
-    removeFavorite(animalID: ID!): Profile
-    removeAdopted(animalID: ID!): Profile
+    removeFavorite(animalID: String!): Profile
+    removeAdopted(animalID: String!): Profile
   }
   
 `;
