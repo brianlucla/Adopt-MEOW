@@ -7,6 +7,14 @@
  */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;600&display=swap');
 
+/* MORGIAH FONT */
+@font-face {
+  font-family: 'MORGIAH';
+  src: url('../src/fonts/MORGIAH.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
 /* tailwind directives to CSS */
 @tailwind base;
 @tailwind components;
@@ -14,19 +22,1126 @@
 
 html,
 body,
-#root,
+#root{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair', sans-serif;
+  font-weight: bold;
+  background-color: #010026;
+}
+
+
 .app {
   height: 100%;
   background-color: #010026;
-  @apply text-white;
+  color: white;
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
 }
-
+/* Navbar styling */
 .navbar img { 
   height: 40px;
   width: auto;
   margin-right: 10px;
 }
 
+.navbar { 
+  background-color: #1a202c;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
+.navbar a{
+  color: #ff12ff;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+}
+
+.navbar-logo {
+  display:flex;
+  align-items: center;
+}
+
+.navbar-logo img { 
+  height: 5rem;
+  width: auto;
+  margin-right: 1rem;
+}
+
+.navbar-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  display: none;
+}
+
+.navbar-menu-item {
+  position: relative;
+  
+}
+
+.navbar-menu {
+  display:flex;
+  justify-content:space-around;
+  flex-grow: 1;
+  font-family: 'Open Sans', sans-serif;
+  align-items: center;
+}
+
+.navbar-menu ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.navbar-menu ul li {
+  margin-right: 2rem;
+  font-weight: bold;
+}
+
+.navbar-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight:bold;
+}
+
+.navbar-login {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.navbar-login-button {
+  background-color: #1a202c;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  vertical-align: middle;
+  border: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-login-button:hover {
+  color: #ff69b4; /* Change to your desired shade of pink */
+  text-shadow: 0 0 10px #ff69b4; /* Change to your desired shade of pink */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* navbar menu items styles */
+.navbar-menu-item:hover .navbar-menu-link{
+  color: #ff69b4 !important; /* Change to your desired shade of pink */
+  text-shadow: 0 0 10px #ff69b4; /* Change to your desired shade of pink */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.hoverable-menu-option {
+  position: relative;
+  transition-delay: 0.3s; /* Add a 0.3s delay before the hover effect */
+}
+
+.hoverable-menu-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position it below the hoverable-menu-option */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: 10px;
+  background-color: #1a202c;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s;
+}
+
+.hoverable-menu-option:hover .hoverable-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  color: #ff69b4;
+  text-shadow: 0 0 10px #ff69b4;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.hoverable-menu-option:hover {
+  color: #ff69b4; /* Change to your desired shade of pink */
+}
+
+/* login styling */
+.login-signup-card {
+  max-width: 300px;
+  position: absolute;
+  left: 40em;
+  top: 5em;
+}
+
+.login-signup-modal {
+z-index: 1000;
+}
+
+.close-button {
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.login-signup-card h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.login-signup-card label {
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.login-signup-card input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-signup-card button {
+  background-color: #ffffff;
+  color: #1f3a68;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.login-signup-card button:hover {
+  background-color: #f0f0f0;
+}
+
+.login-signup-card p {
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
+.login-signup-card a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+/* card styling */
+.card {
+  color: #fff;
+  margin-bottom: 1rem;
+  padding: 20px;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s;
+  box-sizing: border-box;
+  display: inline-block;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img{
+  flex:1;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 20px;
+}
+
+.card p {
+  color: #ddd;
+}
+
+.card a{ 
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: teal;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.card a:hover{
+  background-color: yellow;
+  color: black;
+}
+
+/* CSS Grid layout for the card container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Display four cards in each column */
+  gap: 20px; /* Add a gap between the cards */
+}
+
+
+/* carousel styling */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 36em;
+  margin: 0 auto;
+  overflow: hidden;
+}
+/* Carousel images */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+/* Next and previous arrow buttons */
+.carousel-container .slick-next,
+.carousel-container .slick-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #FE0000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+}
+.carousel-container .slick-next {
+  right: 10px;
+}
+.carousel-container .slick-prev {
+  left: 10px;
+}
+.carousel-container .slick-next img,
+.carousel-container .slick-prev img {
+  width: 20px;
+  height: 20px;
+}
+.carousel-container .slick-next:hover,
+.carousel-container .slick-prev:hover {
+  background-color: #A40B0B;
+}
+/* Carousel fade animation */
+.carousel-container .slick-fade .slick-slide {
+  transition: opacity 0.5s ease-in-out;
+}
+.carousel-container .slick-fade .slick-active {
+  opacity: 1;
+}
+.carousel-container .slick-fade .slick-inactive {
+  opacity: 0;
+}
+
+/* incremental styling */
+/* Flex container for the main content */
+.flex-container {
+  display: flex;
+  align-items: center;
+  padding-left: 10em;
+  margin-bottom: 5em;
+  margin-top: 5em;
+}
+
+/* Text container for the "Welcome to AdoptMeow!" text */
+.text-container {
+  flex-basis: 50%;
+  padding-right: 3em;
+  
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Image container for the images with incremental numbers */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.image-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+
+.image {
+  margin-right: 10px;
+}
+
+.image img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+
+.img-yellow {
+  width: 150px;
+  border: solid 1px yellow;
+  background-color: yellow;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius:  100px;
+
+}
+.img-red {
+  width: 100px;
+  height: 100px;
+  border: solid 1px red;
+  background-color: red;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 10px;
+
+}
+
+.img-green {
+  width: 150px;
+  border: solid 1px #72ee88;
+  background-color: #72ee88;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 60px;
+
+}
+.img-violet {
+  width: 150px;
+  border: solid 1px violet;
+  background-color: violet;
+  box-shadow: 10px -10px rgba(0,0,0,0.6);
+  border-radius: 10px;
+
+}
+
+/* Vertical line */
+.line {
+  width: 2px; /* Adjust the width of the vertical line */
+  height: 100%; /* Vertical line covers full height */
+  background-color: #72ee88; /* Color of the vertical line */
+  margin-right: 10px; /* Adjust spacing between line and text */
+  margin-left: 10px; /* Add margin to the left of the line */
+}
+
+.text-right {
+  text-align: left; /* Adjust alignment for the number/text */
+  margin-left: 3em;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px; /* Adjust spacing between number and title */
+}
+
+.number-title {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+
+  .text-container,
+  .image-container {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .text-container {
+    margin-bottom: 20px;
+  }
+
+  .image-wrapper {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .text-right {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 10px; /* Add margin to the top */
+  }
+
+  .number {
+    margin-right: 0; /* Remove margin on smaller screens */
+  }
+}
+
+
+/* styling for footer components */
+/* styling for footer components */
+footer {
+  background-color: #1a202c;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer a {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+footer a:hover {
+  transform: translateY(-5px);
+  color: #ff69b4;
+  animation: shake 0.4s ease infinite;
+}
+
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+footer img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Increase the logo size and add border */
+footer img.logo {
+  width: auto;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 14px;
+  position: relative;
+}
+
+/* Add pink glow effect on hover */
+footer p:hover {
+  color: #ff69b4 !important;
+  text-shadow: 0 0 10px #ff69b4;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Center the icons and align logo to the right */
+footer div.icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer div.logo-container {
+  flex: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Add enhanced hover effect for social media icons */
+footer div.icons-container a:hover {
+  transform: scale(1.2);
+  animation: bounce 0.6s ease infinite;
+}
+
+/* bouncing effect for the icons */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+footer div.icons-container a:hover {
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+}
+
+/* Add a subtle pulsating effect to the logo on hover */
+footer img.logo:hover {
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+}
+
+
+/* pulsing effect for logo */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  footer div {
+    flex-direction: column;
+  }
+
+  footer a {
+    margin: 5px 0;
+  }
+}
+
+
+
+
+
+
+/* Sample CSS for flip cards about us adopted friends*/
+.animal-flip-cards {
+  padding: 20px;
+  text-align: center;
+}
+
+.animal-flip-cards h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.flip-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.flip-card {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.flip-card-front {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.flip-card-back {
+  background-color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+
+/* Sample CSS for flip card content elements */
+.flip-card img {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: 10px 10px 0 0;
+}
+
+.flip-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.flip-card p {
+  font-size: 14px;
+}
+
+.flip-card blockquote {
+  margin-top: 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* CSS for flip card animation on hover (optional) */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* styling for animals of the month */
+.animals-of-the-month {
+  padding: 20px;
+  text-align: center;
+  background-color: #010026;
+  color: #fff;
+}
+
+.animals-of-the-month-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.animal-of-the-month {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.animal-of-the-month:hover {
+  transform: scale(1.05);
+}
+
+.animal-of-the-month img {
+  width: 100%;
+  height: 50%;
+  border-radius: 10px;
+}
+
+.animal-of-the-month h3 {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.animal-of-the-month p {
+  color: #ddd;
+}
+
+/* styling for sponsors portion */
+.sponsors {
+  padding: 20px;
+  text-align: center;
+  background-color: #010026;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sponsors h2 {
+  margin-bottom: 20px;
+}
+
+.sponsors-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sponsors-container img {
+  max-width: 200px;
+  max-height: 100px;
+  transition: transform 0.3s;
+}
+
+.sponsors-container img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Styles for the AboutUs component */
+.about-us {
+  background-color: #010026;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: auto;
+  margin: 0 auto;
+}
+
+.about-us__heading {
+  text-align: center;
+  color: #e4d1d1;
+  margin-bottom: 20px;
+}
+
+.about-us__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-us__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.about-us__icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  color: #F500A2; /* Green color for icons, you can change it to your preference */
+}
+
+.about-us__text {
+  color: #b4afaf;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Optional: Add hover effect to icons if desired */
+.about-us__icon:hover {
+  transform: scale(1.5)
+}
+
+
+
+/* style for contact us */
+/* style for contact us */
+
+.contact-us {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  justify-content: center;
+}
+
+.form-group label {
+  flex: 1;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+
+input[type='text'],
+input[type='email'],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+textarea {
+  height: 150px;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style the checkboxes */
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* Hide the default checkbox appearance */
+input[type='checkbox']::-ms-check,
+input[type='checkbox']::-ms-check,
+input[type='checkbox']::-webkit-check,
+input[type='checkbox']::-moz-check,
+input[type='checkbox']::-webkit-check,
+input[type='checkbox']::-webkit-check,
+input[type='checkbox']::-moz-check,
+input[type='checkbox']::-moz-check {
+  border: none;
+  background: transparent;
+  display: none;
+}
+
+/* Custom checkbox appearance when checked */
+input[type='checkbox']:checked::before {
+  content: '\2714';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  font-size: 16px;
+  color: #4caf50; /* Green color for the checkmark, you can change it to your preference */
+}
+
+/* Style the file upload input */
+input[type='file'] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+/* Optional: Add a label style for the file input */
+label[for='file'] {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* grid header style for join our journey */
+/* CSS for the grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color:;
+  padding: 20px;
+  border-radius: 8px;
+  
+}
+
+.journey {
+  display: flex;
+  justify-content:left; /* Align to the left side */
+  align-items: center; /* Center the content vertically */
+}
+
+.page-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 4em;
+}
+
+.left-side,
+.right-side {
+  flex-basis: 50%;
+}
+
+/* Media query for mobile devices */
+/* Media query for small screens */
+@media screen and (max-width: 768px){
+  .contact-us {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .contact-us h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    font-size: 14px;
+  }
+}
+
+/* success message css for the submit form*/
+.success-message {
+  color: #ffffff; /* white color for the text */
+  background-color: #d828a0; /* your chosen background color */
+  border: 1px solid #e0aaff; /* light pink/magenta for the border */
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+/**********************************************************************************************//**********************************************************************************************/
+
+.favorites-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.favorites-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+   color: hsl(0, 9%, 98%);
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  justify-items: center; /* Center items horizontally within the grid */
+}
+
+.pet-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Center text content within the card */
+}
+
+.pet-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.pet-name {
+  font-weight: bold;
+  color: hsl(0, 9%, 98%);
+}
+
+.pet-breed {
+  color: hsl(0, 9%, 98%);
+}
+
+.pet-age,
+.pet-weight {
+  margin-top: 0.5rem;
+  color: hsl(0, 9%, 98%);
+}
+
+.pet-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.adopt-button,
+.remove-button {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
+  box-shadow: none;
+}
+
+.adopt-button {
+  background-color: teal;
+  color: white;
+}
+
+.adopt-button:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.remove-button {
+  background-color: #3e0101;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #d60000;
+}
+
+
+/* Mobile view styles */
+@media screen and (max-width: 640px) {
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* app.css settings 
+ */
  html {
   line-height: 1.15;
   /* 1 */
@@ -1746,492 +2861,3 @@ label form [type='radio'] {
 
 
 
-/* Sample CSS for flip cards about us adopted friends*/
-.animal-flip-cards {
-  padding: 20px;
-  text-align: center;
-}
-
-.animal-flip-cards h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #fff;
-}
-
-.flip-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.flip-card {
-  position: relative;
-  width: 250px;
-  height: 300px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  border-radius: 10px;
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-}
-
-.flip-card-front {
-  background-color: #f2f2f2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.flip-card-back {
-  background-color: #fff;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-
-/* Sample CSS for flip card content elements */
-.flip-card img {
-  max-width: 100%;
-  max-height: 150px;
-  border-radius: 10px 10px 0 0;
-}
-
-.flip-card h3 {
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.flip-card p {
-  font-size: 14px;
-}
-
-.flip-card blockquote {
-  margin-top: 20px;
-  font-size: 14px;
-  font-style: italic;
-}
-
-/* CSS for flip card animation on hover (optional) */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* styling for animals of the month */
-.animals-of-the-month {
-  padding: 20px;
-  text-align: center;
-  background-color: #010026;
-  color: #fff;
-}
-
-.animals-of-the-month-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  justify-content: center;
-}
-
-.animal-of-the-month {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 20px;
-  transition: transform 0.3s;
-}
-
-.animal-of-the-month:hover {
-  transform: scale(1.05);
-}
-
-.animal-of-the-month img {
-  width: 100%;
-  height: 50%;
-  border-radius: 10px;
-}
-
-.animal-of-the-month h3 {
-  margin-top: 20px;
-  color: #fff;
-}
-
-.animal-of-the-month p {
-  color: #ddd;
-}
-
-/* styling for sponsors portion */
-.sponsors {
-  padding: 20px;
-  text-align: center;
-  background-color: #010026;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.sponsors h2 {
-  margin-bottom: 20px;
-}
-
-.sponsors-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.sponsors-container img {
-  max-width: 200px;
-  max-height: 100px;
-  transition: transform 0.3s;
-}
-
-.sponsors-container img:hover {
-  transform: scale(1.1) rotate(5deg);
-}
-
-/* Styles for the AboutUs component */
-.about-us {
-  background-color: #010026;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: auto;
-  margin: 0 auto;
-}
-
-.about-us__heading {
-  text-align: center;
-  color: #e4d1d1;
-  margin-bottom: 20px;
-}
-
-.about-us__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.about-us__item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.about-us__icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  color: #F500A2; /* Green color for icons, you can change it to your preference */
-}
-
-.about-us__text {
-  color: #b4afaf;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-/* Optional: Add hover effect to icons if desired */
-.about-us__icon:hover {
-  transform: scale(1.5)
-}
-
-
-
-/* style for contact us */
-/* style for contact us */
-
-.contact-us {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-us h2 {
-  text-align: center;
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-
-.form-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  position: relative;
-  justify-content: center;
-}
-
-.form-group label {
-  flex: 1;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: bold;
-}
-
-
-input[type='text'],
-input[type='email'],
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-textarea {
-  height: 150px;
-}
-
-input[type='text'],
-input[type='email'],
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Style the checkboxes */
-input[type='checkbox'] {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  cursor: pointer;
-  transform: scale(1.2);
-}
-
-/* Hide the default checkbox appearance */
-input[type='checkbox']::-ms-check,
-input[type='checkbox']::-ms-check,
-input[type='checkbox']::-webkit-check,
-input[type='checkbox']::-moz-check,
-input[type='checkbox']::-webkit-check,
-input[type='checkbox']::-webkit-check,
-input[type='checkbox']::-moz-check,
-input[type='checkbox']::-moz-check {
-  border: none;
-  background: transparent;
-  display: none;
-}
-
-/* Custom checkbox appearance when checked */
-input[type='checkbox']:checked::before {
-  content: '\2714';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
-  font-size: 16px;
-  color: #4caf50; /* Green color for the checkmark, you can change it to your preference */
-}
-
-/* Style the file upload input */
-input[type='file'] {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #f9f9f9;
-}
-
-/* Optional: Add a label style for the file input */
-label[for='file'] {
-  display: block;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: bold;
-}
-
-/* grid header style for join our journey */
-/* CSS for the grid layout */
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.grid-item {
-  background-color:;
-  padding: 20px;
-  border-radius: 8px;
-  
-}
-
-.journey {
-  display: flex;
-  justify-content:left; /* Align to the left side */
-  align-items: center; /* Center the content vertically */
-}
-
-.page-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 4em;
-}
-
-.left-side,
-.right-side {
-  flex-basis: 50%;
-}
-
-/* Media query for mobile devices */
-/* Media query for small screens */
-@media screen and (max-width: 768px){
-  .contact-us {
-    max-width: 100%;
-    padding: 10px;
-  }
-
-  .contact-us h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .form-group label {
-    font-size: 14px;
-  }
-
-  input[type='text'],
-  input[type='email'],
-  textarea {
-    font-size: 14px;
-  }
-}
-
-/* success message css for the submit form*/
-.success-message {
-  color: #ffffff; /* white color for the text */
-  background-color: #d828a0; /* your chosen background color */
-  border: 1px solid #e0aaff; /* light pink/magenta for the border */
-  padding: 10px;
-  margin: 20px 0;
-  border-radius: 5px;
-}
-
-/**********************************************************************************************//**********************************************************************************************/
-
-.favorites-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.favorites-title {
-  font-weight: bold;
-  margin-bottom: 1rem;
-   color: hsl(0, 9%, 98%);
-}
-
-.favorites-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  justify-items: center; /* Center items horizontally within the grid */
-}
-
-.pet-card {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center; /* Center text content within the card */
-}
-
-.pet-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
-}
-
-.pet-name {
-  font-weight: bold;
-  color: hsl(0, 9%, 98%);
-}
-
-.pet-breed {
-  color: hsl(0, 9%, 98%);
-}
-
-.pet-age,
-.pet-weight {
-  margin-top: 0.5rem;
-  color: hsl(0, 9%, 98%);
-}
-
-.pet-buttons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.adopt-button,
-.remove-button {
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  border: none;
-  box-shadow: none;
-}
-
-.adopt-button {
-  background-color: teal;
-  color: white;
-}
-
-.adopt-button:hover {
-  background-color: yellow;
-  color: black;
-}
-
-.remove-button {
-  background-color: #3e0101;
-  color: white;
-}
-
-.remove-button:hover {
-  background-color: #d60000;
-}
-
-
-/* Mobile view styles */
-@media screen and (max-width: 640px) {
-  .favorites-grid {
-    grid-template-columns: 1fr;
-  }
-}

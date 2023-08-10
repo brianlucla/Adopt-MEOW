@@ -3,7 +3,7 @@ import smileImage from "../assets/images/icons/smile-min.png";
 import likeImage from "../assets/images/icons/like-min.png";
 import groupImage from "../assets/images/icons/group-min.png";
 import cameraImage from "../assets/images/icons/camera-min.png";
-import "../index.css";
+import "../App.css";
 
 
 const IncrementalImages = () => {

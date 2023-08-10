@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo/LOGO-min.png";
-import "../index.css";
+import "../App.css";
 import LoginSignup from "./LoginSignup";
 import SignUp from "./SignUp";
 

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import "../App.css";
 
 import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';

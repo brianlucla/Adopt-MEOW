@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../index.css";
+import "../App.css";
 
 import matthew from "../assets/images/slide/matthew-min.png";
 import LUNA from "../assets/images/slide/sofia(1)-min.png";
